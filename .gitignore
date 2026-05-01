@@ -1,18 +1,6 @@
-# Secrets
+# Secrets — never commit API keys
 .env
 
-# Python
+# Python cache
 __pycache__/
 *.pyc
-
-# Data files (large CSVs — do not commit)
-raw_reviews.csv
-raw_reddit.csv
-extracted_behaviors.csv
-errors.csv
-test_errors.csv
-test_output.csv
-
-# Generated reports (regenerate with: python main.py --only-summary)
-summary_report.txt
-summary_data.json

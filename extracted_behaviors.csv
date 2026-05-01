@@ -1,0 +1,105 @@
+app_name,app_id,review_id,rating,date,review_text,drop_off_stage,friction_type,emotion,gave_up,trust_signal,effort_complained,language,literacy_hint,device_hint,income_hint,region_hint,key_quote,confidence,api_used
+PhonePe,com.phonepe.app,e2d82356-c2eb-4cf8-90d1-c98f06e01598,5,2026-04-29,👍,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,82595eb9-05b3-4a6b-a184-8f07cb1041c5,3,2026-04-29,🥰❤️❤️❤️❤️,unknown,,unknown,,trusted,,unknown,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,91a32675-501e-460e-8036-15f67f23ef65,5,2026-04-29,bad 😞😞😞😞😞😞 isase achcha to Navi upi hai,unknown,confusing_language,disappointed,True,lost_trust,True,hindi,unknown,unknown,unknown,unknown,isase achcha to Navi upi hai,low,groq
+PhonePe,com.phonepe.app,e4176656-02b3-478d-8586-a46302ca4801,5,2026-04-29,very fast paymat,payment,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very fast paymat,high,groq
+PhonePe,com.phonepe.app,2385fe82-cfd5-43f1-b6af-913c31928eef,5,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,8ed93785-6d50-4768-8ed3-c74faaf74194,5,2026-04-29,good one,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,good one,high,groq
+PhonePe,com.phonepe.app,a71866c7-9036-484c-bb7f-c9009e3cde20,1,2026-04-29,very bad app 😑 my refer reward not received so bad,support,trust_issue,angry,True,lost_trust,True,english,unknown,unknown,unknown,unknown,my refer reward not received,low,groq
+PhonePe,com.phonepe.app,3a00d4af-5b99-4ce0-bf7e-ef073738451e,5,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,e2f7d982-3a27-42f3-b9f0-1ce4e2dc4397,4,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,49f7ba81-8421-4ced-96f0-07f9db9f6bc4,5,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,242007e2-590d-470d-931f-6b8f28408a63,5,2026-04-29,bahut badhiya,unknown,,unknown,,trusted,,hindi,unknown,unknown,unknown,unknown,bahut badhiya,high,groq
+PhonePe,com.phonepe.app,88c61119-642a-4659-8220-bb897fa4182d,5,2026-04-29,😊,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,b0e1bc7e-f9ce-40e9-9a14-a1a8bb3bde6a,5,2026-04-29,",, maixc chalu nahie ho rha hai",unknown,confusing_language,frustrated,True,none,True,hinglish,unknown,unknown,unknown,unknown,maixc chalu nahie ho rha hai,low,groq
+PhonePe,com.phonepe.app,da4a4f2e-4de4-43d1-b140-32c6d9149520,4,2026-04-29,very good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very good,high,groq
+PhonePe,com.phonepe.app,91e3c690-1d9d-4ed4-a9d2-8ab80968e9c4,1,2026-04-29,poor customer support... now recently they added a very annoying and unnecessary feature called phonepe protect.. I'm done with this app..,support,poor_support,angry,True,lost_trust,True,english,unknown,unknown,unknown,unknown,poor customer support,low,groq
+PhonePe,com.phonepe.app,3d51b4e1-226f-4228-b81e-a5295fbd3e74,5,2026-04-29,nice 👍,unknown,,unknown,,trusted,,unknown,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,4d88d19c-bcf4-428a-b54d-5d2db3e16a55,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,b4f6ea14-3bd5-4859-91bb-6616149371df,5,2026-04-29,यंग,unknown,,unknown,,unknown,,hindi,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,ceb07403-e16f-4025-b5e8-fbea7a33ad1a,4,2026-04-29,just wow,unknown,,unknown,,trusted,,unknown,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,5b49e371-b6d3-4bab-9155-f3e3020c72c4,4,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,6d0c8a58-0260-491d-9f9d-2df90a7dcb8e,1,2026-04-29,"this is the worst payment app I have seen because it's customer service bad 😞😔 help service also bad, irresponsible, nonchalant, and not shows feedback in every issues related to refund, fraud and something. worst payment app!",support,poor_support,angry,True,lost_trust,True,english,unknown,unknown,unknown,unknown,customer service bad,low,groq
+PhonePe,com.phonepe.app,d5632e29-f5fe-41d8-84bd-8a1438124bdf,1,2026-04-29,very unprofessional app ..so much problem.. giving so much problem to user..,unknown,confusing_language|technical_error,frustrated,,lost_trust,,english,unknown,unknown,unknown,unknown,very unprofessional app ..so much problem,low,groq
+PhonePe,com.phonepe.app,01577f8e-4b9a-445c-8f4b-84efb0b8664b,4,2026-04-29,it is good to use and easy to use but little complicated for old people,onboarding,confusing_language,neutral,,trusted,,english,medium,unknown,unknown,unknown,little complicated for old people,medium,groq
+PhonePe,com.phonepe.app,69bf11cb-1a3b-448f-a43e-5a4d8aa7418d,5,2026-04-29,supar,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,62c2ee1b-3227-4a33-a701-5afcf0e856e3,4,2026-04-29,Easy to use and best online payment app...,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,Easy to use and best online payment app,high,groq
+PhonePe,com.phonepe.app,c0300010-40dd-4470-9136-909686beae53,4,2026-04-29,super work,unknown,,unknown,,trusted,,unknown,unknown,unknown,unknown,unknown,super work,high,groq
+PhonePe,com.phonepe.app,22fa2a54-9268-4133-acb5-43dc192250a8,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,f3278f0e-ea92-4cfa-87a1-2d944327c4b8,3,2026-04-29,"PhonePe team you should also add money request feature in PhonePe like Google Pay, only for money request I have to go to Google Pay, add money request option",feature_use,too_many_steps,frustrated,False,trusted,True,english,medium,high-end-android,middle,metro,only for money request I have to go to Google Pay,medium,groq
+PhonePe,com.phonepe.app,f3a34e7c-69a7-4d4e-a267-be2a405534c2,1,2026-04-29,very bad experience with Phone pay.not satisfied with their service.,unknown,trust_issue,disappointed,True,lost_trust,,english,unknown,unknown,unknown,unknown,very bad experience with Phone pay,low,groq
+PhonePe,com.phonepe.app,4f657177-f8fc-4d84-bc12-9f05d21d723f,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,88408e85-3843-4238-a623-1f40294a9e46,4,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,a129f33c-7169-4af0-957d-f1590da6df9a,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,6f017c92-0fa4-4abb-ae6f-5c946fa68412,5,2026-04-29,Best work,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,Best work,high,groq
+PhonePe,com.phonepe.app,510781fb-2e03-471c-b145-c9aed6077e99,5,2026-04-29,good sarvesh,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,385eb7d4-ef54-4739-96fd-f090109d5f08,5,2026-04-29,very good service and fast payment,payment,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very good service and fast payment,high,groq
+PhonePe,com.phonepe.app,11595a4d-7abc-45e0-8aed-1c6c049c2271,4,2026-04-29,very useful,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very useful,high,groq
+PhonePe,com.phonepe.app,ae1839a3-6347-4cf5-9740-dba59c73ed10,5,2026-04-29,👍,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,9d09b84a-33b1-42d1-aa4a-8bd0093d2544,5,2026-04-29,super 😊,unknown,,happy,,trusted,,english,unknown,unknown,unknown,unknown,super,high,groq
+PhonePe,com.phonepe.app,a560513e-8807-4278-933a-3641ff736f1d,5,2026-04-29,Good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,Good,high,groq
+PhonePe,com.phonepe.app,e2b22ec8-ba41-488f-ac38-34b835e537be,5,2026-04-29,update,update,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,620763da-5677-4b2a-ac66-e1c36f3be5ca,5,2026-04-29,awsm,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,awsm,high,groq
+PhonePe,com.phonepe.app,6fbf1b80-fc70-484b-813b-305ae6b1abee,5,2026-04-29,excellent,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,excellent,high,groq
+PhonePe,com.phonepe.app,35dd21af-8d12-40f4-83c4-43b17fd68101,5,2026-04-29,good experience,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good experience,high,groq
+PhonePe,com.phonepe.app,0926383c-5aae-4d6d-ac04-75a6115d683c,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,68ce2d48-a53c-4ccd-a5c0-e21f69ade4f9,5,2026-04-29,best phonepe,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,best phonepe,high,groq
+PhonePe,com.phonepe.app,4d84f002-2ae4-4bfc-9d53-b7dddd086a44,5,2026-04-29,iconic aap,unknown,,unknown,,unknown,,hindi,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,901d1356-dd5a-4731-abfd-5fadd50ed690,5,2026-04-29,please add a feature to automatically disable flashlight whenever qr scanner is opened. it is tedious to manually turn the flashlight off every time.,feature_use,too_many_steps,frustrated,,trusted,True,english,medium,mid-android,middle,tier-2,it is tedious to manually turn the flashlight off every time,medium,groq
+PhonePe,com.phonepe.app,2b85eade-c952-498b-be9b-f52bdb898c97,5,2026-04-29,super,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,b48e878c-59c7-4a82-a9da-50c2d4070d5f,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,2a7a632e-99b4-456a-9354-bd2a80cb4599,5,2026-04-29,"Great Experience. Just a suggestion for improvement [since there is no specific email ID to suggest improvement] The place below wherein we enter the amt for payment has a symbol, which opens up various graphics usually depicting the reason for payments like ""Movies"", ""Groceries"", etc. There is a calendar symbol which displays the current month's name and names of past 6 months. I suggest that in addition it should display the names of upcoming 6 months as well, which would be very helpful.",feature_use,,neutral,,trusted,,english,medium,high-end-android,middle,metro,display the names of upcoming 6 months as well,high,groq
+PhonePe,com.phonepe.app,76600874-8c20-4545-b99b-1ebada83f320,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,a0fc0a04-90bd-4a43-8fca-bd932d1803d2,1,2026-04-29,"phone pay is good for our ,transaction money,any one",unknown,,unknown,,trusted,,hindi,unknown,unknown,unknown,unknown,"phone pay is good for our ,transaction money,any one",high,groq
+PhonePe,com.phonepe.app,b67f0373-b844-4ff3-bec7-c6f090013129,4,2026-04-29,excellent,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,excellent,high,groq
+PhonePe,com.phonepe.app,929c48f4-1661-4d95-b552-da4fea283180,1,2026-04-29,😡😡,unknown,unknown,angry,True,lost_trust,True,unknown,unknown,unknown,unknown,unknown,,low,groq
+PhonePe,com.phonepe.app,b45ef9fa-bbbb-42a2-9fed-66796538eed2,5,2026-04-29,easy and simple,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,easy and simple,high,groq
+PhonePe,com.phonepe.app,f4aea29a-6d30-470b-9ff2-241bc820d3d4,4,2026-04-29,Best apps,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,Best apps,high,groq
+PhonePe,com.phonepe.app,797ea340-c54b-4a52-9d49-4590599ff21e,4,2026-04-29,👍,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,716f7f17-794f-41a3-9e1b-e617a36fcef0,3,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,32ca9798-149f-40e4-aaea-714599c26624,4,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,a2ea05ce-ff94-4ff0-86ea-95c1533d83c5,2,2026-04-29,louda pakad,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,d95f46f9-6e12-4d77-9a52-ce4b22e94fc4,5,2026-04-29,supar,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,7fab9894-4054-407e-9c80-e96c4415a0ee,5,2026-04-29,super,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,2f9eb40c-1291-4201-b740-ac671cd312aa,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,6cc64fa1-e6da-440c-ad4c-f718e92aaf9b,5,2026-04-29,amazing app make payment easy and secure,unknown,,neutral,,trusted,,english,high,unknown,high,unknown,make payment easy and secure,high,groq
+PhonePe,com.phonepe.app,3bf9b41d-3358-43b3-86fb-93bb15023856,5,2026-04-29,very good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very good,high,groq
+PhonePe,com.phonepe.app,09dfa76f-bab3-43b9-a079-71eb76f5105c,5,2026-04-29,comfortable and safety,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,comfortable and safety,high,groq
+PhonePe,com.phonepe.app,ff89ccc9-07df-47bc-a64d-f2428a655dc5,4,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,1b12fb17-20f2-4fd6-8407-5f5ad03c2301,4,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,e32a6945-e061-4a9c-981a-f9d01b7792dd,5,2026-04-29,very good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very good,high,groq
+PhonePe,com.phonepe.app,e60b4bee-4968-4e1b-b2dd-96ca24cbccfc,5,2026-04-29,trusted app,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,99511e99-0ac9-494e-95a3-085ae6c71793,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,7caf4919-4152-4a47-88d9-dfd4bdd9ec90,5,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,dd506ba5-1584-42cd-ae38-d020d1cea918,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,288df0ac-f455-4f16-81da-a60bd2d3dbc1,5,2026-04-29,good work,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good work,high,groq
+PhonePe,com.phonepe.app,c6289741-aec8-4a0f-9506-374294e3837b,5,2026-04-29,exlent,unknown,,unknown,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,21a43c69-7c2c-4f56-82be-a4b797bd1c58,4,2026-04-29,0p Aa lazaAp. aw q01 00 p QQ,unknown,unknown,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,b8972eb4-982d-4276-a541-db53a354abab,3,2026-04-29,better,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,8abdfd2d-b956-46a8-9195-7e29769f5bf1,5,2026-04-29,very good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very good,high,groq
+PhonePe,com.phonepe.app,dd15b7c5-7704-4151-8326-e3583c69dc97,1,2026-04-29,my all money debited !!!! bad 😡,payment,trust_issue,angry,True,lost_trust,True,english,unknown,unknown,unknown,unknown,my all money debited !!!!,low,groq
+PhonePe,com.phonepe.app,62bfc3d4-099f-4d01-9e10-6c483d26d8b2,5,2026-04-29,very helpful your services good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very helpful your services good,high,groq
+PhonePe,com.phonepe.app,23aa5043-ad09-4123-8bd5-b4629ae40779,4,2026-04-29,PhonePe UPl paym,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,af4536bf-f762-472b-a99b-c01060cef97c,5,2026-04-29,Nice app,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,Nice app,high,groq
+PhonePe,com.phonepe.app,55451d6c-09af-4897-b124-15e129afc1e4,4,2026-04-29,recharj par pese jyada lagte he,payment,price_shock,frustrated,,did_not_trust,,hindi,medium,unknown,middle,tier-2,recharj par pese jyada lagte he,low,groq
+PhonePe,com.phonepe.app,e6558781-3d4d-464d-a689-fb70ffb47533,5,2026-04-29,best,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,best,high,groq
+PhonePe,com.phonepe.app,7a6fd474-2279-4cd5-8326-34cee514b51f,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,593d3c69-c1cd-4826-b459-6c78007ae8df,3,2026-04-29,i like that app,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,i like that app,high,groq
+PhonePe,com.phonepe.app,51a9f359-2936-45dc-893f-cce023587eda,5,2026-04-29,geret,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,3995f8b1-f2ab-4016-9286-3b67032345c2,5,2026-04-29,Trusted and easy to use,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,Trusted and easy to use,high,groq
+PhonePe,com.phonepe.app,3b7a0b4e-0359-4476-aa12-bdfe560783a9,3,2026-04-29,better,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,89f1f109-f244-4a2f-a04d-43c2635e498f,4,2026-04-29,it is a good app for fast transaction,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,it is a good app for fast transaction,high,groq
+PhonePe,com.phonepe.app,65f7799f-0f76-458b-bcaf-d2a59cb56f1e,5,2026-04-29,❤️❤️❤️❤️❤️❤️💋💋💋💋💋💋,unknown,,unknown,,trusted,,unknown,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,23b1d5bb-c38d-4ecf-96b6-cf4f64a7f021,5,2026-04-29,nice payment app for daily using but not cash back refunded,feature_use,trust_issue,disappointed,False,lost_trust,False,english,unknown,unknown,unknown,unknown,not cash back refunded,low,groq
+PhonePe,com.phonepe.app,2c9c149c-9a79-4d43-9f7f-804a5addcb79,1,2026-04-29,not good,unknown,,angry,,lost_trust,,english,unknown,unknown,unknown,unknown,not good,low,groq
+PhonePe,com.phonepe.app,30618672-18c0-4378-86e9-6f1dcf2d3c65,5,2026-04-29,great,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,great,high,groq
+PhonePe,com.phonepe.app,616acaf7-71ed-4b34-b0d1-d39a981f6a3e,4,2026-04-29,very nice 👍,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,6c8b4e9f-84ad-4ec3-a8f5-ebac7784a7c0,1,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,c5562e8b-ace8-462d-b965-c416ead077d9,5,2026-04-29,super aap,unknown,,unknown,,unknown,,unknown,unknown,unknown,unknown,unknown,,unknown,groq
+PhonePe,com.phonepe.app,15bd5a01-3946-4d3c-8e71-b5e03e7c3b98,5,2026-04-29,Nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,e3f8b176-b06b-46dc-b4e9-1f6821b70ea1,5,2026-04-29,nice,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,,high,groq
+PhonePe,com.phonepe.app,75961074-06b9-4c66-99ad-7e37def6aea8,5,2026-04-29,very good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,very good,high,groq
+PhonePe,com.phonepe.app,a76a1ce9-9f68-41d0-8347-cdc0ad038322,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,93352806-7ea5-4e78-b473-25c1d25fb664,4,2026-04-29,It's very good and the process is smoothly,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,It's very good and the process is smoothly,high,groq
+PhonePe,com.phonepe.app,db002210-0226-40c9-a6f7-9a35f2dd3d7e,5,2026-04-29,good,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,good,high,groq
+PhonePe,com.phonepe.app,4af55f11-73b1-42bc-9e48-cd0c740f3cbc,5,2026-04-29,best very easy,unknown,,neutral,,trusted,,english,unknown,unknown,unknown,unknown,best very easy,high,groq
