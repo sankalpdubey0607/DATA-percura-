@@ -49,53 +49,48 @@ ARCHETYPE_PATTERN = re.compile(
 # AUDIT CHECK FUNCTIONS
 # ══════════════════════════════════════════════════════════════
 
-def check_1_completeness(row):
-    """
-    AUDIT CHECK 1: Completeness Check
-    Returns (passed: bool, reason: str or None)
-    """
-    # Check key fields
+import numpy as np
+
+# ══════════════════════════════════════════════════════════════
+# VECTORIZED AUDIT CHECKS
+# ══════════════════════════════════════════════════════════════
+
+def apply_check_1_completeness(df):
+    """AUDIT CHECK 1: Completeness Check"""
+    df["_check1_pass"] = True
+    df["_check1_reason"] = None
+    
+    # Missing key fields
     for field in ["education_level", "occupation", "district", "age"]:
-        val = row.get(field)
-        if val is None or (isinstance(val, float) and pd.isna(val)):
-            return False, "incomplete_key_fields"
-        if isinstance(val, str) and val.strip() == "":
-            return False, "incomplete_key_fields"
+        missing = df[field].isna() | (df[field].astype(str).str.strip() == "")
+        df.loc[missing & df["_check1_pass"], "_check1_reason"] = "incomplete_key_fields"
+        df.loc[missing, "_check1_pass"] = False
 
-    # Age range check
-    try:
-        age = int(row.get("age", 0))
-        if age < 18 or age > 90:
-            return False, "age_out_of_range"
-    except (ValueError, TypeError):
-        return False, "invalid_age"
+    # Age check
+    age_num = pd.to_numeric(df["age"], errors="coerce")
+    invalid_age = age_num.isna() | (age_num < 18) | (age_num > 90)
+    df.loc[invalid_age & df["_check1_pass"], "_check1_reason"] = "invalid_age_or_out_of_range"
+    df.loc[invalid_age, "_check1_pass"] = False
 
-    # Name check (extracted_name from sorter)
-    name = row.get("extracted_name", "")
-    if isinstance(name, float) and pd.isna(name):
-        name = ""
-    name = str(name).strip().lower()
-    if name in ["", "unknown", "test", "null", "none", "nan"]:
-        # Check persona field as fallback
-        persona = str(row.get("persona", ""))
-        if len(persona.strip()) < 10:
-            return False, "missing_name"
+    # Name check
+    name_str = df["extracted_name"].fillna("").astype(str).str.strip().str.lower()
+    persona_len = df["persona"].fillna("").astype(str).str.len()
+    bad_name = name_str.isin(["", "unknown", "test", "null", "none", "nan"])
+    missing_name = bad_name & (persona_len < 10)
+    df.loc[missing_name & df["_check1_pass"], "_check1_reason"] = "missing_name"
+    df.loc[missing_name, "_check1_pass"] = False
 
-    # Location too vague
-    district = str(row.get("district", "")).strip().lower()
-    state = str(row.get("state", "")).strip().lower()
-    if district in ["india", "", "unknown"] and state in ["", "unknown", "india"]:
-        return False, "location_too_vague"
+    # Location vague
+    dist_str = df["district"].fillna("").astype(str).str.strip().str.lower()
+    state_str = df["state"].fillna("").astype(str).str.strip().str.lower()
+    vague_loc = dist_str.isin(["india", "", "unknown"]) & state_str.isin(["", "unknown", "india"])
+    df.loc[vague_loc & df["_check1_pass"], "_check1_reason"] = "location_too_vague"
+    df.loc[vague_loc, "_check1_pass"] = False
 
-    return True, None
-
+    return df
 
 def check_2_duplicate(df):
-    """
-    AUDIT CHECK 2: Duplicate Check
-    Returns DataFrame with added columns: is_exact_duplicate, is_near_duplicate
-    Must operate on full chunk at once.
-    """
+    """AUDIT CHECK 2: Duplicate Check"""
     # Build dedup key: extracted_name + age + district + occupation
     df["_dedup_key"] = (
         df["extracted_name"].fillna("").astype(str).str.lower().str.strip() + "|" +
@@ -123,101 +118,113 @@ def check_2_duplicate(df):
 
     return df
 
+def apply_check_3_behavioral(df):
+    """AUDIT CHECK 3: Behavioral Usefulness Check"""
+    df["_check3_pass"] = True
+    df["_check3_reason"] = None
 
-def check_3_behavioral_usefulness(row):
-    """
-    AUDIT CHECK 3: Behavioral Usefulness Check
-    Returns (passed: bool, reason: str or None)
-    """
-    try:
-        trust = float(row.get("trust_prior", 0.5))
-        attention = float(row.get("attention_budget", 45))
-        effort = float(row.get("effort_tolerance", 4))
-        noise = float(row.get("noise_level", 0.15))
-    except (ValueError, TypeError):
-        return True, None  # Can't check, let it pass
+    trust = pd.to_numeric(df["trust_prior"], errors="coerce").fillna(0.5)
+    attention = pd.to_numeric(df["attention_budget"], errors="coerce").fillna(45)
+    effort = pd.to_numeric(df["effort_tolerance"], errors="coerce").fillna(4)
+    noise = pd.to_numeric(df["noise_level"], errors="coerce").fillna(0.15)
 
-    if trust == 0:
-        return False, "trust_prior_zero"
-    if trust == 1:
-        return False, "trust_prior_one"
-    if attention < 10:
-        return False, "attention_too_low"
-    if attention > 120:
-        return False, "attention_too_high"
-    if effort < 1:
-        return False, "effort_too_low"
-    if noise > 0.5:
-        return False, "noise_too_high"
+    mask_trust0 = trust == 0
+    df.loc[mask_trust0 & df["_check3_pass"], "_check3_reason"] = "trust_prior_zero"
+    df.loc[mask_trust0, "_check3_pass"] = False
 
-    return True, None
+    mask_trust1 = trust == 1
+    df.loc[mask_trust1 & df["_check3_pass"], "_check3_reason"] = "trust_prior_one"
+    df.loc[mask_trust1, "_check3_pass"] = False
 
+    mask_att_low = attention < 10
+    df.loc[mask_att_low & df["_check3_pass"], "_check3_reason"] = "attention_too_low"
+    df.loc[mask_att_low, "_check3_pass"] = False
 
-def check_5_consistency(row):
-    """
-    AUDIT CHECK 5: Data Consistency Check
-    Returns (flag: str or None, reason: str or None)
-    Rows are NOT removed, only flagged.
-    """
-    try:
-        age = int(row.get("age", 30))
-    except (ValueError, TypeError):
-        age = 30
+    mask_att_high = attention > 120
+    df.loc[mask_att_high & df["_check3_pass"], "_check3_reason"] = "attention_too_high"
+    df.loc[mask_att_high, "_check3_pass"] = False
 
-    occupation = str(row.get("occupation", "")).lower()
-    occupation_mapped = str(row.get("occupation_mapped", "")).lower()
-    literacy = str(row.get("literacy_mapped", "")).lower()
-    region = str(row.get("region_mapped", "")).lower()
-    device = str(row.get("device_mapped", "")).lower()
+    mask_eff_low = effort < 1
+    df.loc[mask_eff_low & df["_check3_pass"], "_check3_reason"] = "effort_too_low"
+    df.loc[mask_eff_low, "_check3_pass"] = False
 
-    # Young person but retired
-    if age <= 22 and "retired" in occupation:
-        return "review_needed", "age_occupation_mismatch"
+    mask_noise = noise > 0.5
+    df.loc[mask_noise & df["_check3_pass"], "_check3_reason"] = "noise_too_high"
+    df.loc[mask_noise, "_check3_pass"] = False
 
-    # Graduate but listed as illiterate occupation match
-    if literacy == "graduate" and occupation_mapped == "no_income":
-        # Possible (students), but check age
-        if age > 30:
-            return "review_needed", "literacy_occupation_mismatch"
+    return df
 
-    # Metro + graduate + professional + basic_android (unlikely)
-    if (region == "metro" and literacy == "graduate" and
-            occupation_mapped == "professional" and device == "basic_android"):
-        return "review_needed", "unlikely_combination"
+def apply_check_5_consistency(df):
+    """AUDIT CHECK 5: Data Consistency Check (Flag Only)"""
+    df["consistency_flag"] = None
+    df["consistency_reason"] = None
 
-    # Very old + student
-    if age > 60 and "student" in occupation:
-        return "review_needed", "age_occupation_mismatch"
+    age = pd.to_numeric(df["age"], errors="coerce").fillna(30)
+    occ = df["occupation"].fillna("").astype(str).str.lower()
+    occ_map = df["occupation_mapped"].fillna("").astype(str).str.lower()
+    lit = df["literacy_mapped"].fillna("").astype(str).str.lower()
+    reg = df["region_mapped"].fillna("").astype(str).str.lower()
+    dev = df["device_mapped"].fillna("").astype(str).str.lower()
 
-    return None, None
+    # Retired but young
+    mask1 = (age <= 22) & occ.str.contains("retired")
+    df.loc[mask1, "consistency_flag"] = "review_needed"
+    df.loc[mask1, "consistency_reason"] = "age_occupation_mismatch"
 
+    # Graduate but no income and older
+    mask2 = (lit == "graduate") & (occ_map == "no_income") & (age > 30)
+    df.loc[mask2 & df["consistency_flag"].isna(), "consistency_flag"] = "review_needed"
+    df.loc[mask2 & df["consistency_reason"].isna(), "consistency_reason"] = "literacy_occupation_mismatch"
 
-def check_6_simulation_viability(row):
-    """
-    AUDIT CHECK 6: Simulation Viability Check
-    Returns (passed: bool, reason: str or None)
-    """
-    # Check friction triggers
-    triggers = str(row.get("top_friction_triggers", ""))
-    if not triggers or triggers.strip() in ["", "nan", "[]", "none"]:
-        return False, "empty_friction_triggers"
+    # Unlikely rich combo
+    mask3 = (reg == "metro") & (lit == "graduate") & (occ_map == "professional") & (dev == "basic_android")
+    df.loc[mask3 & df["consistency_flag"].isna(), "consistency_flag"] = "review_needed"
+    df.loc[mask3 & df["consistency_reason"].isna(), "consistency_reason"] = "unlikely_combination"
 
-    # Check drop-off stage
-    stage = str(row.get("primary_drop_off_stage", ""))
-    if not stage or stage.strip().lower() in ["", "unknown", "nan", "none"]:
-        return False, "unknown_drop_off_stage"
+    # Very old student
+    mask4 = (age > 60) & occ.str.contains("student")
+    df.loc[mask4 & df["consistency_flag"].isna(), "consistency_flag"] = "review_needed"
+    df.loc[mask4 & df["consistency_reason"].isna(), "consistency_reason"] = "age_occupation_mismatch"
 
-    # Check archetype format
-    archetype = str(row.get("archetype", ""))
-    if not ARCHETYPE_PATTERN.match(archetype):
-        return False, "malformed_archetype"
+    return df
 
-    # Check parameter version
-    pv = str(row.get("parameter_version", ""))
-    if not pv or pv.strip() in ["", "nan", "none"]:
-        return False, "missing_parameter_version"
+def apply_check_6_viability(df):
+    """AUDIT CHECK 6: Simulation Viability Check"""
+    df["_check6_pass"] = True
+    df["_check6_reason"] = None
 
-    return True, None
+    # Friction triggers
+    trig = df["top_friction_triggers"].fillna("").astype(str).str.strip().str.lower()
+    mask_trig = trig.isin(["", "nan", "[]", "none"])
+    df.loc[mask_trig & df["_check6_pass"], "_check6_reason"] = "empty_friction_triggers"
+    df.loc[mask_trig, "_check6_pass"] = False
+
+    # Drop-off stage
+    stage = df["primary_drop_off_stage"].fillna("").astype(str).str.strip().str.lower()
+    mask_stage = stage.isin(["", "unknown", "nan", "none"])
+    df.loc[mask_stage & df["_check6_pass"], "_check6_reason"] = "unknown_drop_off_stage"
+    df.loc[mask_stage, "_check6_pass"] = False
+
+    # Archetype format
+    arch = df["archetype"].fillna("").astype(str)
+    # Vectorized regex match using str.match
+    mask_arch = ~arch.str.match(
+        r"^(youth|young|middle|senior)-"
+        r"(metro|tier_2|tier_3|rural)-"
+        r"(illiterate|primary|secondary|graduate)-"
+        r"(no_income|informal|blue_collar|white_collar|professional)-"
+        r"(basic_android|mid_android|high_android|iphone)$"
+    )
+    df.loc[mask_arch & df["_check6_pass"], "_check6_reason"] = "malformed_archetype"
+    df.loc[mask_arch, "_check6_pass"] = False
+
+    # Parameter version
+    pv = df["parameter_version"].fillna("").astype(str).str.strip().str.lower()
+    mask_pv = pv.isin(["", "nan", "none"])
+    df.loc[mask_pv & df["_check6_pass"], "_check6_reason"] = "missing_parameter_version"
+    df.loc[mask_pv, "_check6_pass"] = False
+
+    return df
 
 
 # ══════════════════════════════════════════════════════════════
@@ -310,37 +317,19 @@ def run_auditor():
 
         try:
             # ── Check 1: Completeness ──
-            check1_results = df.apply(
-                lambda r: check_1_completeness(r), axis=1, result_type="expand"
-            )
-            df["_check1_pass"] = check1_results[0]
-            df["_check1_reason"] = check1_results[1]
+            df = apply_check_1_completeness(df)
 
             # ── Check 2: Duplicates ──
             df = check_2_duplicate(df)
 
             # ── Check 3: Behavioral usefulness ──
-            check3_results = df.apply(
-                lambda r: check_3_behavioral_usefulness(r), axis=1,
-                result_type="expand"
-            )
-            df["_check3_pass"] = check3_results[0]
-            df["_check3_reason"] = check3_results[1]
+            df = apply_check_3_behavioral(df)
 
             # ── Check 5: Consistency (flag only) ──
-            check5_results = df.apply(
-                lambda r: check_5_consistency(r), axis=1, result_type="expand"
-            )
-            df["consistency_flag"] = check5_results[0]
-            df["consistency_reason"] = check5_results[1]
+            df = apply_check_5_consistency(df)
 
             # ── Check 6: Simulation viability ──
-            check6_results = df.apply(
-                lambda r: check_6_simulation_viability(r), axis=1,
-                result_type="expand"
-            )
-            df["_check6_pass"] = check6_results[0]
-            df["_check6_reason"] = check6_results[1]
+            df = apply_check_6_viability(df)
 
             # ── Determine final status ──
             df["removal_reason"] = None

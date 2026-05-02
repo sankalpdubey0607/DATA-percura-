@@ -11,6 +11,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Force unbuffered stdout on Windows so prints show up in real-time
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(line_buffering=True)
+
 # ── Paths ─────────────────────────────────────────────────────────────────────
 OUT_DIR = os.path.join("data", "processed")
 INPUT_FILE = os.path.join(OUT_DIR, "reviews_to_extract.csv")
@@ -18,10 +22,10 @@ OUTPUT_FILE = os.path.join(OUT_DIR, "extracted_behaviors.csv")
 CHECKPOINT_FILE = os.path.join(OUT_DIR, "extraction_checkpoint.json")
 ERRORS_FILE = os.path.join(OUT_DIR, "extraction_errors.csv")
 
-GROQ_MODEL = "llama-3.3-70b-versatile"
-BASE_DELAY = 4.0
+GROQ_MODEL = "llama-3.1-8b-instant"
+BASE_DELAY = 3.0
 MAX_RETRIES = 6
-BACKOFF_BASE = 20
+BACKOFF_BASE = 8
 CHECKPOINT_INTERVAL = 100
 
 # ── Improved system prompt (Fix 3) ──────────────────────────────────────────
@@ -51,6 +55,8 @@ IMPORTANT EXTRACTION RULES:
 - Words like "slow", "hang", "crash", "lagging" = friction_type includes "slow_loading"
 - Words like "bakwaas", "bekar", "worst", "pathetic" = emotion = "angry"
 - Words like "fraud", "scam", "cheat", "thagi" = trust_signal = "never_had_trust", emotion = "betrayed"
+- EMOJI OR SHORT REVIEWS: Infer emotion from emojis (😡 = angry, 😞 = disappointed, 👍 = happy). Infer gave_up from rating (1-2 = true, 4-5 = false). 
+- STRICT ENUM COMPLIANCE: For drop_off_stage, friction_type, emotion, trust_signal, confidence, you MUST ONLY use the EXACT allowed values. NEVER copy raw text into these fields. If unsure, use "unknown".
 
 Return ONLY this JSON, no other text:
 {{
@@ -136,7 +142,7 @@ def call_groq(client, system, user):
         except GroqRateLimitError as e:
             last_err = e
             wait = BACKOFF_BASE * (2 ** attempt) + random.uniform(1, 5)
-            print(f"    [429] attempt {attempt+1}/{MAX_RETRIES}, sleeping {wait:.0f}s...")
+            print(f"    [429] attempt {attempt+1}/{MAX_RETRIES}, sleeping {wait:.0f}s...", flush=True)
             time.sleep(wait)
         except Exception as e:
             raise e
@@ -161,8 +167,8 @@ def save_checkpoint(index, app_name):
 
 def progress_bar(current, total, width=20):
     filled = int(width * current / total) if total > 0 else 0
-    bar = chr(9608) * filled + chr(9617) * (width - filled)
-    return f"{bar} {current}/{total}"
+    bar = "#" * filled + "-" * (width - filled)
+    return f"[{bar}] {current}/{total}"
 
 
 def run_extraction():

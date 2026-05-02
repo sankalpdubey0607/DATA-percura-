@@ -40,15 +40,15 @@ def run_prefilter():
         text = (row.get("review_text") or "").strip()
         rating = row.get("rating", "")
 
-        # RULE 1: Too short
-        if len(text) < 15:
+        # RULE 1: Too short (Relaxed to boost volume)
+        if len(text) < 2:
             counts["too_short"] += 1
             filtered.append({**row, "filter_reason": "too_short"})
             continue
 
-        # RULE 2: Emoji only
+        # RULE 2: Emoji only (Disabled to allow extracting signals from emojis)
         stripped = EMOJI_PATTERN.sub("", text).strip()
-        if len(stripped) < 5:
+        if False: # disabled
             counts["emoji_only"] += 1
             filtered.append({**row, "filter_reason": "emoji_only"})
             continue

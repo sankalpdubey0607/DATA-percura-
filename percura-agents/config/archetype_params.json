@@ -1,135 +1,2399 @@
 {
   "version": "1.0",
-  "last_updated": "2026-05-02",
-  "description": "Behavioral parameter table for Percura archetype assignment. This is the single source of truth for all behavioral parameters.",
-
+  "last_updated": "2026-05-03",
+  "description": "Behavioral parameter table for Percura archetype assignment. NOTE: These parameters have been SYNTHESIZED from live behavioral data extractions covering all 80 baseline combinations.",
   "patterns": [
     {
-      "id": "illiterate_noincome_basic",
+      "id": "illiterate_no_income_basic_android",
       "match_rules": {
-        "literacy": ["illiterate"],
-        "occupation": ["no_income", "informal"],
-        "device": ["basic_android"]
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "basic_android"
+        ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.15,
-        "effort_tolerance": 2,
-        "cognitive_load_limit": 2,
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
         "price_sensitivity": 0.95,
-        "social_proof_need": 0.85,
-        "verification_patience": 0.15,
-        "noise_level": 0.20,
-        "primary_drop_off_stage": "payment",
-        "top_friction_triggers": ["otp_verification", "long_forms", "english_only_ui", "payment_screen"]
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
       }
     },
     {
-      "id": "primary_informal_basic",
+      "id": "illiterate_no_income_mid_android",
       "match_rules": {
-        "literacy": ["primary"],
-        "occupation": ["informal"],
-        "device": ["basic_android"]
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_no_income_high_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_no_income_iphone",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_informal_basic_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_informal_mid_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_informal_high_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_informal_iphone",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_blue_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_blue_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_blue_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_blue_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_white_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_white_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_white_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_white_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 20,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_professional_basic_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "basic_android"
+        ]
       },
       "params": {
         "attention_budget": 35,
-        "trust_prior": 0.20,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.90,
-        "social_proof_need": 0.80,
-        "verification_patience": 0.20,
-        "noise_level": 0.18,
-        "primary_drop_off_stage": "verification",
-        "top_friction_triggers": ["verification_failed", "price_shock", "too_many_steps", "no_hindi_support"]
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
       }
     },
     {
-      "id": "secondary_bluecollar_mid",
+      "id": "illiterate_professional_mid_android",
       "match_rules": {
-        "literacy": ["secondary"],
-        "occupation": ["blue_collar"],
-        "device": ["mid_android"]
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 35,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_professional_high_android",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 35,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "illiterate_professional_iphone",
+      "match_rules": {
+        "literacy": [
+          "illiterate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 35,
+        "trust_prior": 0.2,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_no_income_basic_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_no_income_mid_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_no_income_high_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_no_income_iphone",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_informal_basic_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_informal_mid_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_informal_high_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_informal_iphone",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "primary_blue_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_blue_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_blue_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_blue_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_white_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_white_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_white_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_white_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_professional_basic_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "basic_android"
+        ]
       },
       "params": {
         "attention_budget": 45,
-        "trust_prior": 0.35,
-        "effort_tolerance": 4,
-        "cognitive_load_limit": 3,
-        "price_sensitivity": 0.75,
-        "social_proof_need": 0.65,
-        "verification_patience": 0.35,
-        "noise_level": 0.15,
-        "primary_drop_off_stage": "onboarding",
-        "top_friction_triggers": ["confusing_language", "hidden_charges", "forced_signup", "slow_loading"]
-      }
-    },
-    {
-      "id": "secondary_whitecollar_mid",
-      "match_rules": {
-        "literacy": ["secondary"],
-        "occupation": ["white_collar"],
-        "device": ["mid_android"]
-      },
-      "params": {
-        "attention_budget": 55,
-        "trust_prior": 0.45,
-        "effort_tolerance": 5,
-        "cognitive_load_limit": 4,
-        "price_sensitivity": 0.60,
-        "social_proof_need": 0.50,
-        "verification_patience": 0.50,
-        "noise_level": 0.12,
-        "primary_drop_off_stage": "form_fill",
-        "top_friction_triggers": ["form_too_long", "poor_support", "trust_issue", "technical_error"]
-      }
-    },
-    {
-      "id": "graduate_whitecollar_high",
-      "match_rules": {
-        "literacy": ["graduate"],
-        "occupation": ["white_collar"],
-        "device": ["high_android"]
-      },
-      "params": {
-        "attention_budget": 75,
-        "trust_prior": 0.55,
-        "effort_tolerance": 6,
-        "cognitive_load_limit": 5,
-        "price_sensitivity": 0.40,
-        "social_proof_need": 0.35,
-        "verification_patience": 0.65,
-        "noise_level": 0.10,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
         "primary_drop_off_stage": "feature_use",
-        "top_friction_triggers": ["poor_support", "technical_error", "confusing_language", "hidden_charges"]
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_professional_mid_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_professional_high_android",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "primary_professional_iphone",
+      "match_rules": {
+        "literacy": [
+          "primary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_no_income_basic_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_no_income_mid_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_no_income_high_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_no_income_iphone",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_informal_basic_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_informal_mid_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_informal_high_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_informal_iphone",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "secondary_blue_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_blue_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_blue_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_blue_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_white_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_white_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_white_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_white_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_professional_basic_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_professional_mid_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_professional_high_android",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "secondary_professional_iphone",
+      "match_rules": {
+        "literacy": [
+          "secondary"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_no_income_basic_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_no_income_mid_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_no_income_high_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_no_income_iphone",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "no_income"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_informal_basic_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_informal_mid_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_informal_high_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_informal_iphone",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "informal"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 10,
+        "trust_prior": 0.1,
+        "effort_tolerance": 1,
+        "cognitive_load_limit": 1,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.9,
+        "verification_patience": 0.1,
+        "noise_level": 0.28,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error"
+        ]
+      }
+    },
+    {
+      "id": "graduate_blue_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_blue_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_blue_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_blue_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "blue_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_white_collar_basic_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_white_collar_mid_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_white_collar_high_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_white_collar_iphone",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "white_collar"
+        ],
+        "device": [
+          "iphone"
+        ]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_professional_basic_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "basic_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_professional_mid_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "mid_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
+      }
+    },
+    {
+      "id": "graduate_professional_high_android",
+      "match_rules": {
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "high_android"
+        ]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
       }
     },
     {
       "id": "graduate_professional_iphone",
       "match_rules": {
-        "literacy": ["graduate"],
-        "occupation": ["professional"],
-        "device": ["iphone"]
+        "literacy": [
+          "graduate"
+        ],
+        "occupation": [
+          "professional"
+        ],
+        "device": [
+          "iphone"
+        ]
       },
       "params": {
-        "attention_budget": 90,
-        "trust_prior": 0.65,
-        "effort_tolerance": 8,
-        "cognitive_load_limit": 6,
-        "price_sensitivity": 0.25,
-        "social_proof_need": 0.25,
-        "verification_patience": 0.80,
-        "noise_level": 0.08,
-        "primary_drop_off_stage": "checkout",
-        "top_friction_triggers": ["technical_error", "poor_support", "data_privacy_fear", "hidden_charges"]
+        "attention_budget": 45,
+        "trust_prior": 0.2,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.8,
+        "verification_patience": 0.3,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": [
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "trust_issue"
+        ]
       }
     }
   ],
-
   "overrides": [
     {
       "id": "rural_override",
-      "condition": {"region": "rural"},
+      "condition": {
+        "region": "rural"
+      },
       "apply": {
         "attention_budget_multiplier": 0.8,
         "trust_prior_offset": -0.05,
@@ -138,7 +2402,6 @@
       "reason": "Rural users face connectivity issues that compound all other friction points"
     }
   ],
-
   "default": {
     "attention_budget": 45,
     "trust_prior": 0.35,
@@ -146,9 +2409,12 @@
     "cognitive_load_limit": 3,
     "price_sensitivity": 0.65,
     "social_proof_need": 0.55,
-    "verification_patience": 0.40,
+    "verification_patience": 0.4,
     "noise_level": 0.15,
     "primary_drop_off_stage": "onboarding",
-    "top_friction_triggers": ["too_many_steps", "confusing_language"]
+    "top_friction_triggers": [
+      "too_many_steps",
+      "confusing_language"
+    ]
   }
 }

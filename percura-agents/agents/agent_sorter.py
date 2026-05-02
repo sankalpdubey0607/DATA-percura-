@@ -323,6 +323,22 @@ def load_archetype_params():
         print(f"  ERROR: Invalid JSON in {PARAMS_FILE}: {e}")
         sys.exit(1)
 
+def build_config_dataframe(config):
+    """Pre-compute the pattern matrix to allow vectorized merging."""
+    import itertools
+    literacies = ["illiterate", "primary", "secondary", "graduate"]
+    occupations = ["no_income", "informal", "blue_collar", "white_collar", "professional"]
+    devices = ["basic_android", "mid_android", "high_android", "iphone"]
+    rows = []
+    
+    for l, o, d in itertools.product(literacies, occupations, devices):
+        params, pid, is_def = find_matching_pattern(l, o, d, config)
+        r = {"literacy_mapped": l, "occupation_mapped": o, "device_mapped": d, "used_default": is_def}
+        for k, v in params.items():
+            r[k] = "|".join(v) if isinstance(v, list) else v
+        rows.append(r)
+    return pd.DataFrame(rows)
+
 
 def find_matching_pattern(literacy, occupation, device, config):
     """Find the first matching pattern from config, or return default."""
@@ -388,57 +404,108 @@ def save_checkpoint(rows_processed, chunk_idx):
 # MAIN PROCESSING
 # ══════════════════════════════════════════════════════════════
 
-def process_chunk(df, config):
-    """Process a single chunk of data, returning enriched DataFrame."""
-    # Map fields
-    df["age_band"] = df["age"].apply(map_age_band)
-    df["literacy_mapped"] = df["education_level"].apply(map_education)
-    df["occupation_mapped"] = df["occupation"].apply(map_occupation)
-    df["device_mapped"] = df["occupation_mapped"].apply(map_device)
-    df["region_mapped"] = df.apply(
-        lambda r: map_region(r.get("district", ""), r.get("state", "")), axis=1
-    )
-    df["extracted_name"] = df["persona"].apply(extract_name_from_persona)
-
-    # Build archetype string
-    df["archetype"] = (
-        df["age_band"] + "-" +
-        df["region_mapped"] + "-" +
-        df["literacy_mapped"] + "-" +
-        df["occupation_mapped"] + "-" +
-        df["device_mapped"]
-    )
-
-    # Assign behavioral parameters
-    param_columns = [
-        "attention_budget", "trust_prior", "effort_tolerance",
-        "cognitive_load_limit", "price_sensitivity", "social_proof_need",
-        "verification_patience", "noise_level",
-        "primary_drop_off_stage", "top_friction_triggers",
+def process_chunk(df, config, config_df):
+    """Process a single chunk of data, returning enriched DataFrame using fast vectorization."""
+    import numpy as np
+    
+    # 1. Map Age
+    age = pd.to_numeric(df["age"], errors="coerce").fillna(0)
+    df["age_band"] = np.select([age <= 25, age <= 35, age <= 50], ["youth", "young", "middle"], default="senior")
+    
+    # 2. Map Education
+    edu = df["education_level"].fillna("").astype(str).str.lower()
+    df["literacy_mapped"] = "secondary" # default
+    df.loc[edu.str.contains('illiterate|anpadh|no school|none|no formal|uneducated', regex=True, na=False), "literacy_mapped"] = "illiterate"
+    df.loc[edu.str.contains('literate|primary|elementary|class [1-5]', regex=True, na=False), "literacy_mapped"] = "primary"
+    df.loc[edu.str.contains('graduate|bachelor|master|phd|degree|engineer|mba|college', regex=True, na=False), "literacy_mapped"] = "graduate"
+    
+    # 3. Map Occupation
+    occ = df["occupation"].fillna("").astype(str).str.lower()
+    conds = [
+        occ.str.contains('|'.join(NO_INCOME_KEYWORDS), regex=True, na=False),
+        occ.str.contains('|'.join(PROFESSIONAL_KEYWORDS), regex=True, na=False),
+        occ.str.contains('|'.join(INFORMAL_KEYWORDS), regex=True, na=False),
+        occ.str.contains('|'.join(BLUE_COLLAR_KEYWORDS), regex=True, na=False),
+        occ.str.contains('|'.join(WHITE_COLLAR_KEYWORDS), regex=True, na=False),
     ]
-    used_default_flags = []
-
-    rows_data = []
-    for _, row in df.iterrows():
-        params, pattern_id, is_default = find_matching_pattern(
-            row["literacy_mapped"], row["occupation_mapped"],
-            row["device_mapped"], config
+    choices = ["no_income", "professional", "informal", "blue_collar", "white_collar"]
+    df["occupation_mapped"] = np.select(conds, choices, default="blue_collar")
+    
+    # 4. Map Device (Probabilistic based on Occupation and Age)
+    rand_vals = np.random.rand(len(df))
+    occ_m = df["occupation_mapped"]
+    age_m = df["age_band"]
+    
+    is_iphone = (
+        ((occ_m == "professional") & (rand_vals < 0.75)) |
+        ((occ_m == "white_collar") & (age_m == "youth") & (rand_vals < 0.15)) |
+        ((occ_m == "white_collar") & (age_m != "youth") & (rand_vals < 0.10)) |
+        ((occ_m == "blue_collar") & (age_m == "youth") & (rand_vals < 0.05)) # Aspirational EMI
+    )
+    
+    is_high_android = (
+        ~is_iphone & (
+            ((occ_m == "professional") & (rand_vals < 0.95)) |
+            ((occ_m == "white_collar") & (rand_vals < 0.60)) |
+            ((occ_m == "blue_collar") & (age_m == "youth") & (rand_vals < 0.25)) |
+            ((occ_m == "blue_collar") & (age_m != "youth") & (rand_vals < 0.10)) |
+            ((occ_m == "informal") & (age_m == "youth") & (rand_vals < 0.05))
         )
-        # Apply region overrides
-        params = apply_overrides(params, row["region_mapped"], config)
-        used_default_flags.append(is_default)
-
-        row_params = {}
-        for col in param_columns:
-            val = params.get(col, "")
-            if isinstance(val, list):
-                val = "|".join(val)
-            row_params[col] = val
-        row_params["used_default"] = is_default
-        rows_data.append(row_params)
-
-    params_df = pd.DataFrame(rows_data, index=df.index)
-    df = pd.concat([df, params_df], axis=1)
+    )
+    
+    is_mid_android = (
+        ~is_iphone & ~is_high_android & (
+            (occ_m == "white_collar") |
+            ((occ_m == "blue_collar") & (rand_vals < 0.85)) |
+            ((occ_m == "informal") & (age_m == "youth") & (rand_vals < 0.30)) |
+            ((occ_m == "informal") & (age_m != "youth") & (rand_vals < 0.10)) |
+            ((occ_m == "no_income") & (age_m.isin(["youth", "young"])) & (rand_vals < 0.50)) | # Students
+            (occ_m == "professional")
+        )
+    )
+    
+    df["device_mapped"] = np.select([is_iphone, is_high_android, is_mid_android], ["iphone", "high_android", "mid_android"], default="basic_android")
+    
+    # 5. Map Region
+    dist = df["district"].fillna("").astype(str).str.lower()
+    occ_raw = df["occupation"].fillna("").astype(str).str.lower()
+    
+    is_metro = dist.str.contains('|'.join(METRO_DISTRICTS), regex=True, na=False)
+    is_t2 = dist.str.contains('|'.join(TIER_2_DISTRICTS), regex=True, na=False)
+    
+    # Rural is defined by keywords in district, occupation, or a 40% probability for the rest
+    is_rural_keyword = dist.str.contains('rural|gram|panchayat|taluk|tehsil|block|village', regex=True, na=False)
+    is_rural_occ = occ_raw.str.contains('farm|agricultur|dairy|tractor', regex=True, na=False)
+    is_rural = is_rural_keyword | is_rural_occ | (~is_metro & ~is_t2 & (np.random.rand(len(df)) < 0.40))
+    
+    df["region_mapped"] = np.select([is_metro, is_t2, is_rural], ["metro", "tier_2", "rural"], default="tier_3")
+    
+    # 6. Extract Name
+    df["extracted_name"] = df["persona"].astype(str).str.extract(r'^(?:Meet\s+)?([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)')[0]
+    
+    # Build archetype string
+    df["archetype"] = df["age_band"] + "-" + df["region_mapped"] + "-" + df["literacy_mapped"] + "-" + df["occupation_mapped"] + "-" + df["device_mapped"]
+    
+    # 7. Merge Behavioral Parameters (Vectorized!)
+    # We drop existing param columns if any, then left join
+    df = df.merge(config_df, on=["literacy_mapped", "occupation_mapped", "device_mapped"], how="left")
+    
+    # 8. Apply Region Overrides Vectorized
+    for override in config.get("overrides", []):
+        cond = override.get("condition", {})
+        reg_cond = cond.get("region")
+        if reg_cond:
+            mask = df["region_mapped"] == reg_cond
+            apply_dict = override["apply"]
+            if "attention_budget_multiplier" in apply_dict and "attention_budget" in df.columns:
+                df.loc[mask, "attention_budget"] = (pd.to_numeric(df.loc[mask, "attention_budget"], errors="coerce").fillna(45) * apply_dict["attention_budget_multiplier"]).astype(int)
+            if "trust_prior_offset" in apply_dict and "trust_prior" in df.columns:
+                df.loc[mask, "trust_prior"] = (pd.to_numeric(df.loc[mask, "trust_prior"], errors="coerce").fillna(0.5) + apply_dict["trust_prior_offset"]).clip(lower=0).round(2)
+            if "add_friction_trigger" in apply_dict and "top_friction_triggers" in df.columns:
+                trigger = apply_dict["add_friction_trigger"]
+                curr = df.loc[mask, "top_friction_triggers"].astype(str)
+                needs_trigger = ~curr.str.contains(trigger, regex=False)
+                df.loc[mask & needs_trigger, "top_friction_triggers"] = curr[needs_trigger] + "|" + trigger
 
     # Add metadata columns
     df["parameter_version"] = config.get("version", "1.0")
@@ -463,6 +530,7 @@ def run_sorter():
     # Load config
     print("\n  [1/5] Loading archetype parameters...")
     config = load_archetype_params()
+    config_df = build_config_dataframe(config)
     print(f"         Loaded {len(config['patterns'])} patterns + "
           f"{len(config.get('overrides', []))} overrides")
 
@@ -524,7 +592,7 @@ def run_sorter():
             df = chunk_ds.to_pandas()
 
             # Process
-            df = process_chunk(df, config)
+            df = process_chunk(df, config, config_df)
 
             # Count stats
             archetype_counter.update(df["archetype"].value_counts().to_dict())

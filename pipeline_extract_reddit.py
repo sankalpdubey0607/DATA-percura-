@@ -9,15 +9,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Force unbuffered stdout on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(line_buffering=True)
+
 OUT_DIR = os.path.join("data", "processed")
 INPUT_FILE = "raw_reddit.csv"
 OUTPUT_FILE = os.path.join(OUT_DIR, "extracted_reddit.csv")
 ERRORS_FILE = os.path.join(OUT_DIR, "reddit_errors.csv")
 
-GROQ_MODEL = "llama-3.3-70b-versatile"
-BASE_DELAY = 4.0
+GROQ_MODEL = "llama-3.1-8b-instant"
+BASE_DELAY = 3.0
 MAX_RETRIES = 6
-BACKOFF_BASE = 20
+BACKOFF_BASE = 8
 
 SYSTEM_PROMPT = """You are a behavioral data extraction specialist for an Indian startup called Percura. Your job is to extract behavioral signals from real Indian app user reviews.
 
@@ -39,8 +43,10 @@ Top comment: {comment_trunc}
 This is a user describing a real experience with a digital product or service in India. Extract the same JSON structure as app reviews.
 
 Additionally extract:
-"product_mentioned": the app or service being discussed
+"product_mentioned": the app or service being discussed. (If the post is a political rant, news, social commentary, or entirely unrelated to a digital product, set this to "irrelevant").
 "issue_category": "privacy" | "payment" | "trust" | "ux" | "scam" | "support" | "technical" | "other"
+
+STRICT ENUM COMPLIANCE: For drop_off_stage, friction_type, emotion, trust_signal, confidence, you MUST ONLY use the EXACT allowed values. NEVER copy raw text into these fields. If unsure, use "unknown". If product_mentioned is "irrelevant", output "unknown" or empty for all fields.
 
 Return ONLY this JSON, no other text:
 {{
@@ -196,6 +202,11 @@ def run_reddit_extraction():
                 friction = ex.get("friction_type", [])
                 if isinstance(friction, list):
                     friction = "|".join(friction)
+
+                product_mentioned = ex.get("product_mentioned", "unknown")
+                if isinstance(product_mentioned, str) and product_mentioned.lower() == "irrelevant":
+                    stats["skipped"] += 1
+                    continue
 
                 writer.writerow({
                     "source": "reddit", "subreddit": subreddit,
