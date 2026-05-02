@@ -1,0 +1,7 @@
+pandas
+pyarrow
+tqdm
+python-dotenv
+fuzzywuzzy
+python-Levenshtein
+datasets

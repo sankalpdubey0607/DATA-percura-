@@ -1,0 +1,154 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-02",
+  "description": "Behavioral parameter table for Percura archetype assignment. This is the single source of truth for all behavioral parameters.",
+
+  "patterns": [
+    {
+      "id": "illiterate_noincome_basic",
+      "match_rules": {
+        "literacy": ["illiterate"],
+        "occupation": ["no_income", "informal"],
+        "device": ["basic_android"]
+      },
+      "params": {
+        "attention_budget": 30,
+        "trust_prior": 0.15,
+        "effort_tolerance": 2,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.95,
+        "social_proof_need": 0.85,
+        "verification_patience": 0.15,
+        "noise_level": 0.20,
+        "primary_drop_off_stage": "payment",
+        "top_friction_triggers": ["otp_verification", "long_forms", "english_only_ui", "payment_screen"]
+      }
+    },
+    {
+      "id": "primary_informal_basic",
+      "match_rules": {
+        "literacy": ["primary"],
+        "occupation": ["informal"],
+        "device": ["basic_android"]
+      },
+      "params": {
+        "attention_budget": 35,
+        "trust_prior": 0.20,
+        "effort_tolerance": 3,
+        "cognitive_load_limit": 2,
+        "price_sensitivity": 0.90,
+        "social_proof_need": 0.80,
+        "verification_patience": 0.20,
+        "noise_level": 0.18,
+        "primary_drop_off_stage": "verification",
+        "top_friction_triggers": ["verification_failed", "price_shock", "too_many_steps", "no_hindi_support"]
+      }
+    },
+    {
+      "id": "secondary_bluecollar_mid",
+      "match_rules": {
+        "literacy": ["secondary"],
+        "occupation": ["blue_collar"],
+        "device": ["mid_android"]
+      },
+      "params": {
+        "attention_budget": 45,
+        "trust_prior": 0.35,
+        "effort_tolerance": 4,
+        "cognitive_load_limit": 3,
+        "price_sensitivity": 0.75,
+        "social_proof_need": 0.65,
+        "verification_patience": 0.35,
+        "noise_level": 0.15,
+        "primary_drop_off_stage": "onboarding",
+        "top_friction_triggers": ["confusing_language", "hidden_charges", "forced_signup", "slow_loading"]
+      }
+    },
+    {
+      "id": "secondary_whitecollar_mid",
+      "match_rules": {
+        "literacy": ["secondary"],
+        "occupation": ["white_collar"],
+        "device": ["mid_android"]
+      },
+      "params": {
+        "attention_budget": 55,
+        "trust_prior": 0.45,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.60,
+        "social_proof_need": 0.50,
+        "verification_patience": 0.50,
+        "noise_level": 0.12,
+        "primary_drop_off_stage": "form_fill",
+        "top_friction_triggers": ["form_too_long", "poor_support", "trust_issue", "technical_error"]
+      }
+    },
+    {
+      "id": "graduate_whitecollar_high",
+      "match_rules": {
+        "literacy": ["graduate"],
+        "occupation": ["white_collar"],
+        "device": ["high_android"]
+      },
+      "params": {
+        "attention_budget": 75,
+        "trust_prior": 0.55,
+        "effort_tolerance": 6,
+        "cognitive_load_limit": 5,
+        "price_sensitivity": 0.40,
+        "social_proof_need": 0.35,
+        "verification_patience": 0.65,
+        "noise_level": 0.10,
+        "primary_drop_off_stage": "feature_use",
+        "top_friction_triggers": ["poor_support", "technical_error", "confusing_language", "hidden_charges"]
+      }
+    },
+    {
+      "id": "graduate_professional_iphone",
+      "match_rules": {
+        "literacy": ["graduate"],
+        "occupation": ["professional"],
+        "device": ["iphone"]
+      },
+      "params": {
+        "attention_budget": 90,
+        "trust_prior": 0.65,
+        "effort_tolerance": 8,
+        "cognitive_load_limit": 6,
+        "price_sensitivity": 0.25,
+        "social_proof_need": 0.25,
+        "verification_patience": 0.80,
+        "noise_level": 0.08,
+        "primary_drop_off_stage": "checkout",
+        "top_friction_triggers": ["technical_error", "poor_support", "data_privacy_fear", "hidden_charges"]
+      }
+    }
+  ],
+
+  "overrides": [
+    {
+      "id": "rural_override",
+      "condition": {"region": "rural"},
+      "apply": {
+        "attention_budget_multiplier": 0.8,
+        "trust_prior_offset": -0.05,
+        "add_friction_trigger": "slow_loading"
+      },
+      "reason": "Rural users face connectivity issues that compound all other friction points"
+    }
+  ],
+
+  "default": {
+    "attention_budget": 45,
+    "trust_prior": 0.35,
+    "effort_tolerance": 4,
+    "cognitive_load_limit": 3,
+    "price_sensitivity": 0.65,
+    "social_proof_need": 0.55,
+    "verification_patience": 0.40,
+    "noise_level": 0.15,
+    "primary_drop_off_stage": "onboarding",
+    "top_friction_triggers": ["too_many_steps", "confusing_language"]
+  }
+}
