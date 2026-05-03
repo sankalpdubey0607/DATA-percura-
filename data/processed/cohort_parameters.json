@@ -1,0 +1,184 @@
+{
+    "tier_2-medium-middle-mid_android": {
+        "metadata": {
+            "sample_size": 321,
+            "pct_gave_up": 0.76,
+            "pct_trust_issues": 0.77
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 34,
+            "trust_score": 0.1,
+            "effort_tolerance_steps": 4,
+            "confusion_threshold": 0.69,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_2-low-low-mid_android": {
+        "metadata": {
+            "sample_size": 126,
+            "pct_gave_up": 0.99,
+            "pct_trust_issues": 0.99
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 27,
+            "trust_score": 0.1,
+            "effort_tolerance_steps": 4,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "metro-high-middle-mid_android": {
+        "metadata": {
+            "sample_size": 63,
+            "pct_gave_up": 0.29,
+            "pct_trust_issues": 0.32
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 51,
+            "trust_score": 0.32,
+            "effort_tolerance_steps": 4,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_2-low-middle-mid_android": {
+        "metadata": {
+            "sample_size": 146,
+            "pct_gave_up": 0.99,
+            "pct_trust_issues": 0.98
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 26,
+            "trust_score": 0.1,
+            "effort_tolerance_steps": 3,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_3-low-low-basic_android": {
+        "metadata": {
+            "sample_size": 64,
+            "pct_gave_up": 0.98,
+            "pct_trust_issues": 0.97
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 23,
+            "trust_score": 0.1,
+            "effort_tolerance_steps": 2,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "metro-medium-middle-mid_android": {
+        "metadata": {
+            "sample_size": 190,
+            "pct_gave_up": 0.95,
+            "pct_trust_issues": 0.97
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 21,
+            "trust_score": 0.1,
+            "effort_tolerance_steps": 2,
+            "confusion_threshold": 0.69,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_2-medium-low-mid_android": {
+        "metadata": {
+            "sample_size": 18,
+            "pct_gave_up": 1.0,
+            "pct_trust_issues": 1.0
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 25,
+            "trust_score": 0.1,
+            "effort_tolerance_steps": 3,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "metro-high-middle-high_android": {
+        "metadata": {
+            "sample_size": 11,
+            "pct_gave_up": 0.27,
+            "pct_trust_issues": 0.27
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 51,
+            "trust_score": 0.39,
+            "effort_tolerance_steps": 5,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_2-tier_2-low-mid_android": {
+        "metadata": {
+            "sample_size": 101,
+            "pct_gave_up": 0.87,
+            "pct_trust_issues": 0.0
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 23,
+            "trust_score": 0.8,
+            "effort_tolerance_steps": 1,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_2-tier_2-middle-mid_android": {
+        "metadata": {
+            "sample_size": 82,
+            "pct_gave_up": 0.79,
+            "pct_trust_issues": 0.02
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 19,
+            "trust_score": 0.76,
+            "effort_tolerance_steps": 1,
+            "confusion_threshold": 0.65,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "metro-metro-middle-high_android": {
+        "metadata": {
+            "sample_size": 22,
+            "pct_gave_up": 0.77,
+            "pct_trust_issues": 0.0
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 26,
+            "trust_score": 0.8,
+            "effort_tolerance_steps": 2,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "tier_2-tier_2-low-basic_android": {
+        "metadata": {
+            "sample_size": 14,
+            "pct_gave_up": 0.93,
+            "pct_trust_issues": 0.0
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 16,
+            "trust_score": 0.8,
+            "effort_tolerance_steps": 1,
+            "confusion_threshold": 0.7,
+            "noise_vulnerability": 0.2
+        }
+    },
+    "metro-metro-middle-mid_android": {
+        "metadata": {
+            "sample_size": 17,
+            "pct_gave_up": 0.71,
+            "pct_trust_issues": 0.0
+        },
+        "state_machine_parameters": {
+            "patience_seconds": 37,
+            "trust_score": 0.8,
+            "effort_tolerance_steps": 4,
+            "confusion_threshold": 0.58,
+            "noise_vulnerability": 0.2
+        }
+    }
+}
