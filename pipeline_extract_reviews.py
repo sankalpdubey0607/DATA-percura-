@@ -43,9 +43,11 @@ App name: {app_name}
 Review text: {review_text}
 Star rating: {rating} out of 5
 
-IMPORTANT EXTRACTION RULES:
+══════════════════════════════════════════════════════════
+CORE EXTRACTION RULES:
+══════════════════════════════════════════════════════════
 - Rating 1-2 = almost always gave_up = true
-- Rating 3 = gave_up = false, but frustrated
+- Rating 3 = gave_up = false, but frustrated or disappointed
 - Rating 4-5 with complaint words = gave_up = false, trust_signal = "lost_trust" or "did_not_trust"
 - Hinglish/Hindi text: translate meaning then extract
 - If rating is 1 or 2 and no other info: emotion = "frustrated", gave_up = true, trust_signal = "lost_trust"
@@ -55,8 +57,59 @@ IMPORTANT EXTRACTION RULES:
 - Words like "slow", "hang", "crash", "lagging" = friction_type includes "slow_loading"
 - Words like "bakwaas", "bekar", "worst", "pathetic" = emotion = "angry"
 - Words like "fraud", "scam", "cheat", "thagi" = trust_signal = "never_had_trust", emotion = "betrayed"
-- EMOJI OR SHORT REVIEWS: Infer emotion from emojis (😡 = angry, 😞 = disappointed, 👍 = happy). Infer gave_up from rating (1-2 = true, 4-5 = false). 
-- STRICT ENUM COMPLIANCE: For drop_off_stage, friction_type, emotion, trust_signal, confidence, you MUST ONLY use the EXACT allowed values. NEVER copy raw text into these fields. If unsure, use "unknown".
+- EMOJI OR SHORT REVIEWS: Infer emotion from emojis. Infer gave_up from rating (1-2 = true, 4-5 = false).
+- STRICT ENUM COMPLIANCE: Only use exact allowed values. NEVER copy raw text into enum fields.
+
+══════════════════════════════════════════════════════════
+DEVICE / INCOME / REGION INFERENCE RULES (CRITICAL):
+══════════════════════════════════════════════════════════
+You MUST infer device_hint, income_hint, and region_hint even when NOT explicitly stated. Use these proxy signals:
+
+DEVICE_HINT inference:
+- Mentions iPhone/iOS/Apple → "iphone"
+- Mentions Samsung Galaxy S/Note/Fold, OnePlus, Pixel → "high_android"
+- Mentions Redmi/Realme/Poco/Samsung M/A series/Vivo/Oppo → "mid_android"
+- Mentions Jio phone, Nokia basic, keypad phone → "basic_android"
+- Complaints about RAM, storage, phone heating, lagging → "mid_android" or "basic_android"
+- App crash/slow on their device → "mid_android" (most common in India)
+- If review mentions no device clue, use app-based inference:
+  * PhonePe/Paytm/Zomato user → "mid_android" (mass market apps)
+  * BYJU's user → "mid_android" (student/parent demographic)
+  * Meesho user → "basic_android" or "mid_android" (budget shoppers)
+  * UrbanCompany user → "mid_android" or "high_android" (service-oriented)
+- NEVER leave as "unknown" — at minimum infer from app category
+
+INCOME_HINT inference:
+- Mentions "expensive", "too costly", price complaints → "low" or "middle"
+- Mentions "refund", "money wasted", small amount complaints → "low" or "middle"
+- Mentions "premium", "subscription not worth it" → "middle"
+- App-based inference:
+  * Meesho/Glowroad user → "low" or "middle" (budget e-commerce)
+  * PhonePe/Paytm general user → "middle" (mass market fintech)
+  * BYJU's user complaining about cost → "middle" (aspirational education spend)
+  * Zomato/Swiggy user → "middle" (disposable income for food delivery)
+  * UrbanCompany user → "middle" or "high" (paid home services)
+- Hinglish/broken English + budget app → "low"
+- Good English + premium service → "middle" or "high"
+- NEVER leave as "unknown" — at minimum infer from app + language
+
+REGION_HINT inference:
+- Clean English, tech-savvy vocabulary → "metro"
+- Hinglish, casual internet slang → "metro" or "tier_2"
+- Hindi-dominant with English loan words → "tier_2"
+- Broken grammar, phonetic spelling, regional language mix → "tier_2" or "tier_3"
+- Regional languages (Tamil/Telugu/Kannada/Marathi/Gujarati/Bengali) → "tier_2" (state capitals) or "tier_3"
+- Mentions specific cities (Mumbai/Delhi/Bangalore/Hyderabad/Chennai/Pune/Kolkata) → "metro"
+- Mentions smaller cities or rural context → "tier_3" or "rural"
+- App-based inference:
+  * Meesho/Glowroad → "tier_2" or "tier_3" (primary user base)
+  * PhonePe/Paytm → "tier_2" (penetration into semi-urban)
+  * Zomato → "metro" or "tier_2" (food delivery coverage)
+  * UrbanCompany → "metro" (mainly metro service area)
+  * BYJU's → "tier_2" (aspirational education market)
+- NEVER leave as "unknown" — use best inference from all available signals
+
+══════════════════════════════════════════════════════════
 
 Return ONLY this JSON, no other text:
 {{
@@ -96,9 +149,9 @@ effort_complained: true | false | null
 language: "english" | "hindi" | "hinglish" | "gujarati" | "tamil" | "telugu" | "marathi" | "kannada" | "other"
 
 literacy_hint: "high" | "medium" | "low" | "unknown"
-device_hint: "iphone" | "high_android" | "mid_android" | "basic_android" | "unknown"
-income_hint: "high" | "middle" | "low" | "unknown"
-region_hint: "metro" | "tier_2" | "tier_3" | "rural" | "unknown"
+device_hint: "iphone" | "high_android" | "mid_android" | "basic_android" — NEVER use "unknown", always infer
+income_hint: "high" | "middle" | "low" — NEVER use "unknown", always infer
+region_hint: "metro" | "tier_2" | "tier_3" | "rural" — NEVER use "unknown", always infer
 
 key_quote: The single most behaviorally revealing phrase from the review text, under 15 words. If review is too short, use the full text. Never leave empty if there is any text.
 

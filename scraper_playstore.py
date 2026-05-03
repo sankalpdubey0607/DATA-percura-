@@ -11,7 +11,12 @@ can group behavioral signals by vertical when building archetypes.
 import csv
 import time
 import os
+import sys
 from datetime import datetime
+
+# Force UTF-8 stdout on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 from google_play_scraper import reviews, Sort
 
@@ -52,16 +57,67 @@ APPS = {
     "UrbanCompany": "com.urbanclap.urbanclap",
 }
 
-REVIEWS_PER_APP = 500
-OUTPUT_FILE     = "raw_reviews.csv"
-FIELDNAMES      = ["app_name", "app_id", "category", "review_id", "rating", "date", "review_text"]
+REVIEWS_PER_RATING = 300          # per star-rating per app
+TARGET_RATINGS     = [1, 2, 3]    # 1* 2* 3* -- captures rage, disappointment, AND nuanced friction
+OUTPUT_FILE        = "raw_reviews.csv"
+FIELDNAMES         = ["app_name", "app_id", "category", "review_id", "rating", "date", "review_text"]
 
 
 # ── Main scraper ─────────────────────────────────────────────────────────────
-def scrape_playstore(output_file: str = OUTPUT_FILE, reviews_per_app: int = REVIEWS_PER_APP) -> int:
-    """Scrape Play Store reviews and write to CSV. Returns total rows written."""
+def _scrape_rating(app_id: str, app_name: str, target_rating: int,
+                   max_reviews: int) -> list:
+    """Scrape reviews for a single (app, rating) pair using filter_score_with."""
+    collected = []
+    continuation_token = None
+    attempts = 0
+    empty_batches = 0
+    MAX_EMPTY = 3
+
+    while len(collected) < max_reviews and attempts < 10:
+        try:
+            batch, continuation_token = reviews(
+                app_id,
+                lang="en",
+                country="in",
+                sort=Sort.NEWEST,
+                count=min(200, max_reviews - len(collected)),
+                filter_score_with=target_rating,
+                continuation_token=continuation_token,
+            )
+            collected.extend(batch)
+            print(f"      fetched {len(batch):3d} | total {len(collected)}/{max_reviews}")
+
+            if len(batch) == 0:
+                empty_batches += 1
+                if empty_batches >= MAX_EMPTY:
+                    print(f"      {MAX_EMPTY} empty batches -- stopping for {app_name} {target_rating}-star")
+                    break
+            else:
+                empty_batches = 0
+
+            if not continuation_token:
+                print(f"      no more pages")
+                break
+            time.sleep(1)
+        except Exception as e:
+            attempts += 1
+            print(f"      [WARN] attempt {attempts}: {e}")
+            time.sleep(3)
+
+    return collected[:max_reviews]
+
+
+def scrape_playstore(output_file: str = OUTPUT_FILE,
+                     reviews_per_rating: int = REVIEWS_PER_RATING,
+                     target_ratings: list = None) -> int:
+    """Scrape 1* + 2* + 3* Play Store reviews and write to CSV.
+    Returns total rows written."""
+
+    if target_ratings is None:
+        target_ratings = TARGET_RATINGS
 
     total_written = 0
+    seen_ids = set()  # dedup across rating tiers
 
     with open(output_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
@@ -69,70 +125,44 @@ def scrape_playstore(output_file: str = OUTPUT_FILE, reviews_per_app: int = REVI
 
         for app_name, app_id in APPS.items():
             category = CATEGORY_MAP.get(app_name, "unknown")
-            print(f"\n[Play Store] Scraping '{app_name}' ({app_id}) | category={category} ...")
+            app_total = 0
 
-            collected = []
-            continuation_token = None
-            attempts = 0
-            empty_batches = 0
-            MAX_EMPTY = 3  # stop if we get 3 consecutive empty batches
+            for star in target_ratings:
+                print(f"\n[Play Store] {app_name} | {star}-star reviews (target={reviews_per_rating}) ...")
+                batch = _scrape_rating(app_id, app_name, star, reviews_per_rating)
 
-            while len(collected) < reviews_per_app and attempts < 10:
-                try:
-                    batch, continuation_token = reviews(
-                        app_id,
-                        lang="en",
-                        country="in",
-                        sort=Sort.NEWEST,
-                        count=min(200, reviews_per_app - len(collected)),
-                        continuation_token=continuation_token,
-                    )
-                    collected.extend(batch)
-                    print(f"  -> fetched {len(batch)} | total so far: {len(collected)}")
+                written = 0
+                for r in batch:
+                    rid = r.get("reviewId", "")
+                    if rid in seen_ids:
+                        continue
+                    seen_ids.add(rid)
 
-                    if len(batch) == 0:
-                        empty_batches += 1
-                        if empty_batches >= MAX_EMPTY:
-                            print(f"  -> {MAX_EMPTY} empty batches in a row. Stopping for {app_name}.")
-                            break
+                    raw_date = r.get("at", "")
+                    if isinstance(raw_date, datetime):
+                        date_str = raw_date.strftime("%Y-%m-%d")
                     else:
-                        empty_batches = 0
+                        date_str = str(raw_date)
 
-                    if not continuation_token:
-                        print(f"  -> no more pages for {app_name}")
-                        break
-                    time.sleep(1)
-                except Exception as e:
-                    attempts += 1
-                    print(f"  [WARN] Error fetching {app_name} (attempt {attempts}): {e}")
-                    time.sleep(3)
+                    writer.writerow({
+                        "app_name":    app_name,
+                        "app_id":      app_id,
+                        "category":    category,
+                        "review_id":   rid,
+                        "rating":      r.get("score", ""),
+                        "date":        date_str,
+                        "review_text": r.get("content", "").replace("\n", " ").strip(),
+                    })
+                    written += 1
 
-            # Trim to exact target
-            collected = collected[:reviews_per_app]
+                app_total += written
+                print(f"      OK {written} unique {star}-star reviews")
+                time.sleep(2)
 
-            for r in collected:
-                # Normalise date to ISO string
-                raw_date = r.get("at", "")
-                if isinstance(raw_date, datetime):
-                    date_str = raw_date.strftime("%Y-%m-%d")
-                else:
-                    date_str = str(raw_date)
+            total_written += app_total
+            print(f"  OK {app_name} total: {app_total} reviews")
 
-                writer.writerow({
-                    "app_name":    app_name,
-                    "app_id":      app_id,
-                    "category":    category,
-                    "review_id":   r.get("reviewId", ""),
-                    "rating":      r.get("score", ""),
-                    "date":        date_str,
-                    "review_text": r.get("content", "").replace("\n", " ").strip(),
-                })
-
-            total_written += len(collected)
-            print(f"  ✔ Written {len(collected)} reviews for {app_name}")
-            time.sleep(2)
-
-    print(f"\n[Play Store] Done. Total reviews written: {total_written} → {output_file}")
+    print(f"\n[Play Store] Done. Total reviews written: {total_written} -> {output_file}")
     return total_written
 
 
