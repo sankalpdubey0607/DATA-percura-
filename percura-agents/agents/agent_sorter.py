@@ -335,7 +335,15 @@ def build_config_dataframe(config):
         params, pid, is_def = find_matching_pattern(l, o, d, config)
         r = {"literacy_mapped": l, "occupation_mapped": o, "device_mapped": d, "used_default": is_def}
         for k, v in params.items():
-            r[k] = "|".join(v) if isinstance(v, list) else v
+            if k == "primary_drop_off_stage" and isinstance(v, dict):
+                # Flatten dictionary into separate columns
+                for cat, stage in v.items():
+                    r[f"drop_off_{cat}"] = stage
+            elif isinstance(v, list):
+                # Serialize arrays as valid JSON strings
+                r[k] = json.dumps(v)
+            else:
+                r[k] = v
         rows.append(r)
     return pd.DataFrame(rows)
 
@@ -503,9 +511,18 @@ def process_chunk(df, config, config_df):
                 df.loc[mask, "trust_prior"] = (pd.to_numeric(df.loc[mask, "trust_prior"], errors="coerce").fillna(0.5) + apply_dict["trust_prior_offset"]).clip(lower=0).round(2)
             if "add_friction_trigger" in apply_dict and "top_friction_triggers" in df.columns:
                 trigger = apply_dict["add_friction_trigger"]
-                curr = df.loc[mask, "top_friction_triggers"].astype(str)
-                needs_trigger = ~curr.str.contains(trigger, regex=False)
-                df.loc[mask & needs_trigger, "top_friction_triggers"] = curr[needs_trigger] + "|" + trigger
+                
+                def add_to_json_array(json_str, item):
+                    try:
+                        arr = json.loads(str(json_str))
+                        if isinstance(arr, list) and item not in arr:
+                            arr.append(item)
+                            return json.dumps(arr)
+                        return json_str
+                    except:
+                        return json.dumps([item])
+                        
+                df.loc[mask, "top_friction_triggers"] = df.loc[mask, "top_friction_triggers"].apply(lambda x: add_to_json_array(x, trigger))
 
     # Add metadata columns
     df["parameter_version"] = config.get("version", "1.0")

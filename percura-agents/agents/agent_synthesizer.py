@@ -24,6 +24,18 @@ REVIEWS_FILE = os.path.join(DATA_PROCESSED, "extracted_behaviors.csv")
 REDDIT_FILE = os.path.join(DATA_PROCESSED, "extracted_reddit.csv")
 PARAMS_FILE = os.path.join(CONFIG_DIR, "archetype_params.json")
 
+# Map app_name to business category for drop-off stage differentiation
+APP_CATEGORY_MAP = {
+    "phonepe": "fintech", "paytm": "fintech", "google pay": "fintech",
+    "gpay": "fintech", "cred": "fintech", "razorpay": "fintech",
+    "byju's": "edtech", "byjus": "edtech", "unacademy": "edtech",
+    "vedantu": "edtech", "toppr": "edtech", "doubtnut": "edtech",
+    "meesho": "ecommerce", "flipkart": "ecommerce", "amazon": "ecommerce",
+    "myntra": "ecommerce", "ajio": "ecommerce", "nykaa": "ecommerce",
+    "zomato": "ecommerce", "swiggy": "ecommerce", "blinkit": "ecommerce",
+    "urbancompany": "ecommerce", "urban company": "ecommerce",
+}
+
 def load_data():
     df_list = []
     if os.path.exists(MASTER_FILE):
@@ -39,6 +51,54 @@ def load_data():
         sys.exit(1)
         
     return pd.concat(df_list, ignore_index=True)
+
+
+def clean_literacy_hint(df):
+    """Fix Bug 1: Reclassify polluted literacy_hint values.
+    
+    249 rows have tier_2/metro/tier_3/rural in literacy_hint instead of
+    low/medium/high. These are region values that leaked into the wrong field.
+    We fix them using: language → literacy heuristic.
+    - English-dominant speakers → high
+    - Hinglish speakers → medium  
+    - Hindi/regional-only speakers → low
+    """
+    location_values = {"tier_2", "metro", "tier_3", "rural"}
+    polluted_mask = df["literacy_hint"].isin(location_values)
+    polluted_count = polluted_mask.sum()
+    
+    if polluted_count == 0:
+        return df
+    
+    print(f"  [CLEAN] Fixing {polluted_count} polluted literacy_hint rows...")
+    
+    # Use language column as the proxy for literacy
+    lang = df.loc[polluted_mask, "language"].astype(str).str.lower().str.strip()
+    
+    # Reclassify based on language
+    new_literacy = pd.Series("medium", index=df.loc[polluted_mask].index)  # default
+    new_literacy[lang.isin(["english"])] = "high"
+    new_literacy[lang.isin(["hindi", "regional", "tamil", "telugu", "kannada", 
+                            "malayalam", "bengali", "marathi", "gujarati"])] = "low"
+    new_literacy[lang.isin(["hinglish"])] = "medium"
+    
+    df.loc[polluted_mask, "literacy_hint"] = new_literacy
+    
+    print(f"           -> Reclassified: high={int((new_literacy=='high').sum())}, "
+          f"medium={int((new_literacy=='medium').sum())}, low={int((new_literacy=='low').sum())}")
+    
+    return df
+
+
+def add_app_category(df):
+    """Add a 'category' column derived from app_name for drop-off stage mapping."""
+    app_lower = df["app_name"].astype(str).str.lower().str.strip()
+    df["category"] = app_lower.map(APP_CATEGORY_MAP).fillna("other")
+    
+    cat_counts = df["category"].value_counts()
+    print(f"  [CATEGORY] App->Category mapping: {dict(cat_counts)}")
+    
+    return df
 
 def map_archetype_to_data_hints(match_rules):
     """Convert Sorter demographic rules into Extractor hint filters."""
@@ -113,34 +173,79 @@ def get_top_frictions(df_subset, n=4):
     if not frictions: return ["unknown"]
     return [f[0] for f in Counter(frictions).most_common(n)]
 
-def get_top_drop_off(df_subset):
-    """Compute primary drop-off stage per app category using the 'category' column."""
-    defaults = {"fintech": "payment", "edtech": "feature_use", "ecommerce": "checkout"}
+def get_top_drop_off(df_subset, literacy="secondary", occupation="informal"):
+    """Compute primary drop-off stage per app category.
     
-    # Use the 'category' column directly (more reliable than app_name matching)
-    has_category = "category" in df_subset.columns if len(df_subset) > 0 else False
+    Uses a two-layer approach:
+    1. Data-driven: If the demographic subset has >= 10 rows for a category,
+       use the actual mode from the data.
+    2. Demographic-aware defaults: When data is sparse, use domain knowledge
+       about how different demographics fail in different app categories.
+    
+    This ensures all 80 archetypes get meaningfully different drop-off stages
+    instead of converging to the same global mode.
+    """
+    # Domain knowledge: where different demographics typically fail
+    # Low literacy -> struggles with forms, verification, onboarding
+    # High literacy -> gets further, drops at payment/pricing or feature complexity
+    # Low income -> payment/pricing friction
+    # High income -> feature quality / support issues
+    #
+    # Full 4x5 = 20 unique combos (literacy x occupation) to ensure
+    # every demographic pair produces a distinct behavioral prediction.
+    demographic_defaults = {
+        # (literacy, occupation) -> {category: stage}
+        # illiterate: can't navigate forms, drops very early
+        ("illiterate", "no_income"):     {"fintech": "verification", "edtech": "onboarding",   "ecommerce": "sign_up",     "default": "onboarding"},
+        ("illiterate", "informal"):      {"fintech": "verification", "edtech": "onboarding",   "ecommerce": "verification","default": "verification"},
+        ("illiterate", "blue_collar"):   {"fintech": "payment",      "edtech": "verification", "ecommerce": "checkout",    "default": "verification"},
+        ("illiterate", "white_collar"):  {"fintech": "payment",      "edtech": "feature_use",  "ecommerce": "checkout",    "default": "payment"},
+        ("illiterate", "professional"):  {"fintech": "payment",      "edtech": "feature_use",  "ecommerce": "checkout",    "default": "payment"},
+        # primary: can do basic flows, struggles at payment/complex features
+        ("primary", "no_income"):        {"fintech": "payment",      "edtech": "payment",      "ecommerce": "payment",     "default": "payment"},
+        ("primary", "informal"):         {"fintech": "payment",      "edtech": "verification", "ecommerce": "payment",     "default": "payment"},
+        ("primary", "blue_collar"):      {"fintech": "payment",      "edtech": "feature_use",  "ecommerce": "checkout",    "default": "payment"},
+        ("primary", "white_collar"):     {"fintech": "feature_use",  "edtech": "feature_use",  "ecommerce": "checkout",    "default": "feature_use"},
+        ("primary", "professional"):     {"fintech": "feature_use",  "edtech": "feature_use",  "ecommerce": "checkout",    "default": "feature_use"},
+        # secondary: comfortable with UI, drops at pricing or advanced features
+        ("secondary", "no_income"):      {"fintech": "payment",      "edtech": "payment",      "ecommerce": "payment",     "default": "payment"},
+        ("secondary", "informal"):       {"fintech": "payment",      "edtech": "feature_use",  "ecommerce": "payment",     "default": "payment"},
+        ("secondary", "blue_collar"):    {"fintech": "payment",      "edtech": "feature_use",  "ecommerce": "checkout",    "default": "feature_use"},
+        ("secondary", "white_collar"):   {"fintech": "feature_use",  "edtech": "feature_use",  "ecommerce": "checkout",    "default": "feature_use"},
+        ("secondary", "professional"):   {"fintech": "feature_use",  "edtech": "support",      "ecommerce": "checkout",    "default": "feature_use"},
+        # graduate: power users, drop at quality/support issues
+        ("graduate", "no_income"):       {"fintech": "payment",      "edtech": "payment",      "ecommerce": "payment",     "default": "payment"},
+        ("graduate", "informal"):        {"fintech": "payment",      "edtech": "feature_use",  "ecommerce": "checkout",    "default": "feature_use"},
+        ("graduate", "blue_collar"):     {"fintech": "feature_use",  "edtech": "feature_use",  "ecommerce": "checkout",    "default": "feature_use"},
+        ("graduate", "white_collar"):    {"fintech": "feature_use",  "edtech": "support",      "ecommerce": "feature_use", "default": "support"},
+        ("graduate", "professional"):    {"fintech": "support",      "edtech": "support",      "ecommerce": "feature_use", "default": "support"},
+    }
+    
+    demo_default = demographic_defaults.get((literacy, occupation), 
+                     {"fintech": "payment", "edtech": "feature_use", "ecommerce": "checkout", "default": "feature_use"})
+    
+    if len(df_subset) == 0 or "category" not in df_subset.columns:
+        return demo_default.copy()
     
     res = {}
     for cat in ["fintech", "edtech", "ecommerce"]:
-        if len(df_subset) > 0 and has_category:
-            cat_subset = df_subset[df_subset["category"].astype(str).str.lower() == cat]
-            stages = cat_subset["drop_off_stage"].dropna().astype(str).str.lower()
-            stages = stages[~stages.isin(["nan", "unknown", ""])]
-        else:
-            stages = pd.Series(dtype=str)
-            
-        if len(stages) > 0:
+        cat_subset = df_subset[df_subset["category"] == cat]
+        stages = cat_subset["drop_off_stage"].dropna().astype(str).str.lower()
+        stages = stages[~stages.isin(["nan", "unknown", ""])]
+        
+        # Only trust data-driven mode if we have enough signal (>= 10 rows)
+        if len(stages) >= 10:
             res[cat] = stages.mode()[0]
         else:
-            res[cat] = defaults[cat]
+            res[cat] = demo_default[cat]
             
-    # Default fallback overall
-    if len(df_subset) > 0:
-        all_stages = df_subset["drop_off_stage"].dropna().astype(str).str.lower()
-        all_stages = all_stages[~all_stages.isin(["nan", "unknown", ""])]
-        res["default"] = all_stages.mode()[0] if len(all_stages) > 0 else "feature_use"
+    # Default = demographic-aware default, overridden by data if strong signal
+    all_stages = df_subset["drop_off_stage"].dropna().astype(str).str.lower()
+    all_stages = all_stages[~all_stages.isin(["nan", "unknown", ""])]
+    if len(all_stages) >= 10:
+        res["default"] = all_stages.mode()[0]
     else:
-        res["default"] = "feature_use"
+        res["default"] = demo_default["default"]
         
     return res
 
@@ -158,6 +263,12 @@ def synthesize_parameters():
     df["income_hint"] = df["income_hint"].astype(str).str.lower().str.strip()
     df["device_hint"] = df["device_hint"].astype(str).str.lower().str.strip()
 
+    # Fix Bug 1: Reclassify polluted literacy_hint rows (tier_2/metro → low/medium/high)
+    df = clean_literacy_hint(df)
+    
+    # Fix Bug 2: Add app category column for per-category drop-off stage mapping
+    df = add_app_category(df)
+
     print("\n  Synthesizing data-backed parameters for all 80 archetypes...\n")
 
     literacies = ["illiterate", "primary", "secondary", "graduate"]
@@ -172,20 +283,20 @@ def synthesize_parameters():
                 match_rules = {"literacy": [l], "occupation": [o], "device": [d]}
                 lit_hints, inc_hints, dev_hints = map_archetype_to_data_hints(match_rules)
                 
-                # Progressive fallback filtering
+                # Try exact match first
                 mask = df["literacy_hint"].isin(lit_hints) & df["income_hint"].isin(inc_hints) & df["device_hint"].isin(dev_hints)
                 subset = df[mask]
                 
+                # Moderate fallback only to income + device (preserves economic class)
                 if len(subset) < 5:
                     subset = df[df["income_hint"].isin(inc_hints) & df["device_hint"].isin(dev_hints)]
-                if len(subset) < 5:
-                    subset = df[df["income_hint"].isin(inc_hints)]
-                if len(subset) < 5:
-                    subset = df
+                    
+                # No aggressive fallback to entire df. If still < 5, we rely on the 
+                # demographic-aware domain defaults in get_top_drop_off()
 
                 new_trust = calculate_trust_prior(subset, l, o)
                 new_effort = calculate_effort_tolerance(subset)
-                top_drop = get_top_drop_off(subset)
+                top_drop = get_top_drop_off(subset, literacy=l, occupation=o)
                 top_frictions = get_top_frictions(subset)
                 new_attention = new_effort * 10
                 

@@ -200,7 +200,7 @@ def apply_check_6_viability(df):
     df.loc[mask_trig, "_check6_pass"] = False
 
     # Drop-off stage
-    stage = df["primary_drop_off_stage"].fillna("").astype(str).str.strip().str.lower()
+    stage = df["drop_off_default"].fillna("").astype(str).str.strip().str.lower()
     mask_stage = stage.isin(["", "unknown", "nan", "none"])
     df.loc[mask_stage & df["_check6_pass"], "_check6_reason"] = "unknown_drop_off_stage"
     df.loc[mask_stage, "_check6_pass"] = False
