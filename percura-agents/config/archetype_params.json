@@ -32,7 +32,9 @@
           "default": "onboarding"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -65,7 +67,9 @@
           "default": "onboarding"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -98,7 +102,9 @@
           "default": "onboarding"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -131,7 +137,9 @@
           "default": "onboarding"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -164,7 +172,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -197,7 +207,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -230,7 +242,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -263,7 +277,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -296,7 +312,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -329,7 +347,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -362,7 +382,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -395,7 +417,9 @@
           "default": "verification"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -428,7 +452,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -461,7 +487,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -494,7 +522,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -527,7 +557,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -560,7 +592,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -593,7 +627,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -626,7 +662,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -659,7 +697,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -692,7 +732,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -725,7 +767,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "poor_support"
         ]
       }
     },
@@ -758,7 +802,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "technical_error",
+          "price_shock"
         ]
       }
     },
@@ -791,7 +837,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -824,7 +872,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -857,7 +907,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "poor_support"
         ]
       }
     },
@@ -890,7 +942,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "technical_error",
+          "price_shock"
         ]
       }
     },
@@ -923,7 +977,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -956,7 +1012,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -989,7 +1047,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1022,7 +1082,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1055,7 +1117,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1088,7 +1152,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1121,7 +1187,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1154,7 +1222,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1187,7 +1257,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1220,7 +1292,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1253,7 +1327,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1286,7 +1362,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1319,7 +1397,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1352,7 +1432,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -1385,7 +1467,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "poor_support"
         ]
       }
     },
@@ -1418,7 +1502,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "technical_error",
+          "price_shock"
         ]
       }
     },
@@ -1451,7 +1537,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1484,7 +1572,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -1517,7 +1607,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "poor_support"
         ]
       }
     },
@@ -1550,7 +1642,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "technical_error",
+          "price_shock"
         ]
       }
     },
@@ -1583,7 +1677,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1616,7 +1712,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1649,7 +1747,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1682,7 +1782,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1715,7 +1817,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1748,7 +1852,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1781,7 +1887,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1814,7 +1922,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -1847,7 +1957,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1880,7 +1992,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1913,7 +2027,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1946,7 +2062,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -1979,7 +2097,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2012,7 +2132,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -2045,7 +2167,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "poor_support"
         ]
       }
     },
@@ -2078,7 +2202,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "technical_error",
+          "price_shock"
         ]
       }
     },
@@ -2111,7 +2237,9 @@
           "default": "payment"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2144,7 +2272,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "confusing_language"
         ]
       }
     },
@@ -2177,7 +2307,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "slow_loading",
+          "poor_support"
         ]
       }
     },
@@ -2210,7 +2342,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "technical_error",
+          "price_shock"
         ]
       }
     },
@@ -2243,7 +2377,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2276,7 +2412,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -2309,7 +2447,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -2342,7 +2482,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -2375,7 +2517,9 @@
           "default": "feature_use"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2408,7 +2552,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -2441,7 +2587,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -2474,7 +2622,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "technical_error",
+          "trust_issue",
+          "verification_failure"
         ]
       }
     },
@@ -2507,7 +2657,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2540,7 +2692,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2573,7 +2727,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2606,7 +2762,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     },
@@ -2639,7 +2797,9 @@
           "default": "support"
         },
         "top_friction_triggers": [
-          "unknown"
+          "poor_support",
+          "slow_loading",
+          "price_shock"
         ]
       }
     }
