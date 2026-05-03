@@ -242,5 +242,127 @@
                 "noise_vulnerability": 0.2
             }
         }
+    },
+    "2026-05-03_14-40-00": {
+        "tier_2-medium-middle-mid_android": {
+            "metadata": {
+                "historical_sample_size": 157,
+                "recent_sample_size": 175,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 33,
+                "trust_score": 0.1,
+                "effort_tolerance_steps": 4,
+                "confusion_threshold": 0.67,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "tier_2-low-low-mid_android": {
+            "metadata": {
+                "historical_sample_size": 28,
+                "recent_sample_size": 98,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 27,
+                "trust_score": 0.1,
+                "effort_tolerance_steps": 4,
+                "confusion_threshold": 0.7,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "metro-high-middle-mid_android": {
+            "metadata": {
+                "historical_sample_size": 17,
+                "recent_sample_size": 46,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 43,
+                "trust_score": 0.1,
+                "effort_tolerance_steps": 4,
+                "confusion_threshold": 0.7,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "tier_2-low-middle-mid_android": {
+            "metadata": {
+                "historical_sample_size": 53,
+                "recent_sample_size": 93,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 27,
+                "trust_score": 0.1,
+                "effort_tolerance_steps": 4,
+                "confusion_threshold": 0.7,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "tier_2-tier_2-low-mid_android": {
+            "metadata": {
+                "historical_sample_size": 36,
+                "recent_sample_size": 65,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 22,
+                "trust_score": 0.8,
+                "effort_tolerance_steps": 2,
+                "confusion_threshold": 0.7,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "tier_2-tier_2-middle-mid_android": {
+            "metadata": {
+                "historical_sample_size": 22,
+                "recent_sample_size": 60,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 20,
+                "trust_score": 0.74,
+                "effort_tolerance_steps": 1,
+                "confusion_threshold": 0.63,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "metro-metro-middle-mid_android": {
+            "metadata": {
+                "historical_sample_size": 13,
+                "recent_sample_size": 4,
+                "is_trending": true,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 38,
+                "trust_score": 0.8,
+                "effort_tolerance_steps": 4,
+                "confusion_threshold": 0.59,
+                "noise_vulnerability": 0.2
+            }
+        },
+        "metro-metro-middle-iphone": {
+            "metadata": {
+                "historical_sample_size": 5,
+                "recent_sample_size": 0,
+                "is_trending": false,
+                "last_updated": "2026-05-03T14:40:00.861799"
+            },
+            "state_machine_parameters": {
+                "patience_seconds": 30,
+                "trust_score": 0.8,
+                "effort_tolerance_steps": 5,
+                "confusion_threshold": 0.7,
+                "noise_vulnerability": 0.2
+            }
+        }
     }
 }

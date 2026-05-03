@@ -69,17 +69,29 @@ def map_archetype_to_data_hints(match_rules):
     
     return lit_hints, inc_hints, dev_hints
 
-def calculate_trust_prior(df_subset):
-    if len(df_subset) == 0: return 0.5
+def calculate_trust_prior(df_subset, l, o):
+    # Map literacy and occupation to a base trust score
+    # Wider base range to ensure full 0.1-0.85 spread
+    lit_scores = {"illiterate": 0.15, "primary": 0.35, "secondary": 0.55, "graduate": 0.80}
+    occ_scores = {"no_income": 0.15, "informal": 0.25, "blue_collar": 0.45, "white_collar": 0.70, "professional": 0.90}
+    
+    # Weight literacy 40%, occupation 60% (occupation is stronger signal)
+    base = (lit_scores.get(l, 0.5) * 0.4) + (occ_scores.get(o, 0.5) * 0.6)
+    
+    if len(df_subset) == 0: 
+        return round(max(0.1, min(0.85, base)), 2)
+        
     trust_signals = df_subset["trust_signal"].astype(str).str.lower()
-    positive = trust_signals.isin(["high_trust"]).sum()
+    positive = trust_signals.isin(["trusted", "high_trust", "none"]).sum()
     negative = trust_signals.isin(["lost_trust", "never_had_trust", "scam_fear"]).sum()
     
-    # Start at neutral 0.5, adjust based on ratio
-    base = 0.5
     total = len(df_subset)
-    adjustment = ((positive - negative) / total) * 0.4  # Max swing of 0.4
-    return round(max(0.1, min(0.9, base + adjustment)), 2)
+    if total > 0:
+        adjustment = ((positive - negative) / total) * 0.15  # Max swing of 0.15
+    else:
+        adjustment = 0
+        
+    return round(max(0.1, min(0.85, base + adjustment)), 2)
 
 def calculate_effort_tolerance(df_subset):
     if len(df_subset) == 0: return 5
@@ -102,11 +114,35 @@ def get_top_frictions(df_subset, n=4):
     return [f[0] for f in Counter(frictions).most_common(n)]
 
 def get_top_drop_off(df_subset):
-    if len(df_subset) == 0: return "unknown"
-    stages = df_subset["drop_off_stage"].dropna().astype(str).str.lower()
-    stages = stages[~stages.isin(["nan", "unknown", ""])]
-    if len(stages) == 0: return "unknown"
-    return stages.mode()[0]
+    """Compute primary drop-off stage per app category using the 'category' column."""
+    defaults = {"fintech": "payment", "edtech": "feature_use", "ecommerce": "checkout"}
+    
+    # Use the 'category' column directly (more reliable than app_name matching)
+    has_category = "category" in df_subset.columns if len(df_subset) > 0 else False
+    
+    res = {}
+    for cat in ["fintech", "edtech", "ecommerce"]:
+        if len(df_subset) > 0 and has_category:
+            cat_subset = df_subset[df_subset["category"].astype(str).str.lower() == cat]
+            stages = cat_subset["drop_off_stage"].dropna().astype(str).str.lower()
+            stages = stages[~stages.isin(["nan", "unknown", ""])]
+        else:
+            stages = pd.Series(dtype=str)
+            
+        if len(stages) > 0:
+            res[cat] = stages.mode()[0]
+        else:
+            res[cat] = defaults[cat]
+            
+    # Default fallback overall
+    if len(df_subset) > 0:
+        all_stages = df_subset["drop_off_stage"].dropna().astype(str).str.lower()
+        all_stages = all_stages[~all_stages.isin(["nan", "unknown", ""])]
+        res["default"] = all_stages.mode()[0] if len(all_stages) > 0 else "feature_use"
+    else:
+        res["default"] = "feature_use"
+        
+    return res
 
 def synthesize_parameters():
     print("=" * 60)
@@ -147,7 +183,7 @@ def synthesize_parameters():
                 if len(subset) < 5:
                     subset = df
 
-                new_trust = calculate_trust_prior(subset)
+                new_trust = calculate_trust_prior(subset, l, o)
                 new_effort = calculate_effort_tolerance(subset)
                 top_drop = get_top_drop_off(subset)
                 top_frictions = get_top_frictions(subset)
@@ -155,10 +191,17 @@ def synthesize_parameters():
                 
                 # Base tweaks based on exact demographic to prevent total homogeneity
                 if l == "illiterate":
-                    new_attention = max(10, new_attention - 10)
+                    new_attention = max(15, new_attention - 10)
                     new_effort = max(1, new_effort - 1)
+                elif l == "primary":
+                    new_attention = max(20, new_attention)
                 if o == "professional":
                     new_attention = min(100, new_attention + 15)
+                elif o == "white_collar":
+                    new_attention = min(90, new_attention + 10)
+                
+                # Floor at 15 so rural override (0.7x) stays above auditor threshold of 10
+                new_attention = max(15, new_attention)
                 
                 pid = f"{l}_{o}_{d}"
                 new_patterns.append({

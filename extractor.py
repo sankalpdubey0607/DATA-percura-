@@ -137,7 +137,7 @@ effort_complained: true if user mentioned too many steps/too much work. false if
 language: english | hindi | hinglish | gujarati | tamil | telugu | marathi | kannada | bengali | other | unknown
 
 archetype hints (infer from vocabulary, grammar, spelling, content clues):
-  literacy_hint: high (good grammar, technical terms) | medium (decent but casual) | low (broken grammar, phonetic spelling) | unknown
+  literacy_hint: high (good grammar, technical terms) | medium (decent but casual) | low (broken grammar, phonetic spelling) | unknown. NEVER use location values like tier_2 or metro here.
   device_hint: iphone | high-end-android | mid-android | basic-android | unknown
   income_hint: high | middle | low | unknown
   region_hint: metro | tier-2 | tier-3 | rural | unknown
@@ -190,7 +190,7 @@ effort_complained: true if user mentioned too many steps/too much work. false if
 language: english | hindi | hinglish | gujarati | tamil | telugu | marathi | kannada | bengali | other | unknown
 
 archetype hints:
-  literacy_hint: high | medium | low | unknown
+  literacy_hint: high | medium | low | unknown. NEVER use location values like tier_2 or metro here.
   device_hint: iphone | high-end-android | mid-android | basic-android | unknown
   income_hint: high | middle | low | unknown
   region_hint: metro | tier-2 | tier-3 | rural | unknown

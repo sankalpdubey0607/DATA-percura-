@@ -17,7 +17,7 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
+        "attention_budget": 15,
         "trust_prior": 0.1,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
@@ -25,9 +25,17 @@
         "social_proof_need": 0.9,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -45,7 +53,7 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
+        "attention_budget": 15,
         "trust_prior": 0.1,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
@@ -53,9 +61,17 @@
         "social_proof_need": 0.9,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -73,7 +89,7 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
+        "attention_budget": 15,
         "trust_prior": 0.1,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
@@ -81,9 +97,17 @@
         "social_proof_need": 0.9,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -101,7 +125,7 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
+        "attention_budget": 15,
         "trust_prior": 0.1,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
@@ -109,9 +133,17 @@
         "social_proof_need": 0.9,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -129,17 +161,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
+        "attention_budget": 15,
+        "trust_prior": 0.11,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.89,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -157,17 +197,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
+        "attention_budget": 15,
+        "trust_prior": 0.11,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.89,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -185,17 +233,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
+        "attention_budget": 15,
+        "trust_prior": 0.11,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.89,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -213,17 +269,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
+        "attention_budget": 15,
+        "trust_prior": 0.11,
         "effort_tolerance": 1,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.89,
         "verification_patience": 0.1,
         "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -242,19 +306,24 @@
       },
       "params": {
         "attention_budget": 20,
-        "trust_prior": 0.2,
+        "trust_prior": 0.24,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.88,
+        "social_proof_need": 0.76,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -273,19 +342,24 @@
       },
       "params": {
         "attention_budget": 20,
-        "trust_prior": 0.2,
+        "trust_prior": 0.24,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.88,
+        "social_proof_need": 0.76,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -304,19 +378,24 @@
       },
       "params": {
         "attention_budget": 20,
-        "trust_prior": 0.2,
+        "trust_prior": 0.24,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.88,
+        "social_proof_need": 0.76,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -335,19 +414,24 @@
       },
       "params": {
         "attention_budget": 20,
-        "trust_prior": 0.2,
+        "trust_prior": 0.24,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.88,
+        "social_proof_need": 0.76,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -365,20 +449,25 @@
         ]
       },
       "params": {
-        "attention_budget": 20,
-        "trust_prior": 0.2,
+        "attention_budget": 30,
+        "trust_prior": 0.39,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.61,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -396,20 +485,25 @@
         ]
       },
       "params": {
-        "attention_budget": 20,
-        "trust_prior": 0.2,
+        "attention_budget": 30,
+        "trust_prior": 0.39,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.61,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -427,20 +521,25 @@
         ]
       },
       "params": {
-        "attention_budget": 20,
-        "trust_prior": 0.2,
+        "attention_budget": 30,
+        "trust_prior": 0.39,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.61,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -458,20 +557,25 @@
         ]
       },
       "params": {
-        "attention_budget": 20,
-        "trust_prior": 0.2,
+        "attention_budget": 30,
+        "trust_prior": 0.39,
         "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.61,
         "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -489,20 +593,24 @@
         ]
       },
       "params": {
-        "attention_budget": 35,
-        "trust_prior": 0.2,
-        "effort_tolerance": 2,
-        "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 55,
+        "trust_prior": 0.54,
+        "effort_tolerance": 4,
+        "cognitive_load_limit": 3,
+        "price_sensitivity": 0.73,
+        "social_proof_need": 0.46,
+        "verification_patience": 0.4,
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -520,20 +628,24 @@
         ]
       },
       "params": {
-        "attention_budget": 35,
-        "trust_prior": 0.2,
-        "effort_tolerance": 2,
-        "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 55,
+        "trust_prior": 0.54,
+        "effort_tolerance": 4,
+        "cognitive_load_limit": 3,
+        "price_sensitivity": 0.73,
+        "social_proof_need": 0.46,
+        "verification_patience": 0.4,
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -551,20 +663,24 @@
         ]
       },
       "params": {
-        "attention_budget": 35,
-        "trust_prior": 0.2,
-        "effort_tolerance": 2,
-        "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 55,
+        "trust_prior": 0.54,
+        "effort_tolerance": 4,
+        "cognitive_load_limit": 3,
+        "price_sensitivity": 0.73,
+        "social_proof_need": 0.46,
+        "verification_patience": 0.4,
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -582,20 +698,24 @@
         ]
       },
       "params": {
-        "attention_budget": 35,
-        "trust_prior": 0.2,
-        "effort_tolerance": 2,
-        "cognitive_load_limit": 1,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.2,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 55,
+        "trust_prior": 0.54,
+        "effort_tolerance": 4,
+        "cognitive_load_limit": 3,
+        "price_sensitivity": 0.73,
+        "social_proof_need": 0.46,
+        "verification_patience": 0.4,
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -613,17 +733,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.13,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.87,
+        "verification_patience": 0.2,
+        "noise_level": 0.27,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -641,17 +769,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.13,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.87,
+        "verification_patience": 0.2,
+        "noise_level": 0.27,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -669,17 +805,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.13,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.87,
+        "verification_patience": 0.2,
+        "noise_level": 0.27,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -697,17 +841,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.13,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.94,
+        "social_proof_need": 0.87,
+        "verification_patience": 0.2,
+        "noise_level": 0.27,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -725,17 +877,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.19,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.81,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -753,17 +913,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.19,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.81,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -781,17 +949,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.19,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.81,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -809,17 +985,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.19,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.81,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -838,19 +1022,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.32,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.68,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -869,19 +1058,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.32,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.68,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -900,19 +1094,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.32,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.68,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -931,19 +1130,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.32,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.68,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -961,20 +1165,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.47,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.76,
+        "social_proof_need": 0.53,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.21,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -992,20 +1201,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.47,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.76,
+        "social_proof_need": 0.53,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.21,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1023,20 +1237,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.47,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.76,
+        "social_proof_need": 0.53,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.21,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1054,20 +1273,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.47,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.76,
+        "social_proof_need": 0.53,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.21,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1085,20 +1309,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.62,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.69,
+        "social_proof_need": 0.38,
+        "verification_patience": 0.5,
+        "noise_level": 0.18,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1116,20 +1344,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.62,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.69,
+        "social_proof_need": 0.38,
+        "verification_patience": 0.5,
+        "noise_level": 0.18,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1147,20 +1379,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.62,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.69,
+        "social_proof_need": 0.38,
+        "verification_patience": 0.5,
+        "noise_level": 0.18,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1178,20 +1414,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.62,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.69,
+        "social_proof_need": 0.38,
+        "verification_patience": 0.5,
+        "noise_level": 0.18,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1209,17 +1449,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.21,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.79,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1237,17 +1485,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.21,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.79,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1265,17 +1521,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.21,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.79,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1293,17 +1557,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.21,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.9,
+        "social_proof_need": 0.79,
+        "verification_patience": 0.2,
+        "noise_level": 0.26,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1321,17 +1593,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.27,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.86,
+        "social_proof_need": 0.73,
+        "verification_patience": 0.2,
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1349,17 +1629,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.27,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.86,
+        "social_proof_need": 0.73,
+        "verification_patience": 0.2,
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1377,17 +1665,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.27,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.86,
+        "social_proof_need": 0.73,
+        "verification_patience": 0.2,
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1405,17 +1701,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.27,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.86,
+        "social_proof_need": 0.73,
+        "verification_patience": 0.2,
+        "noise_level": 0.25,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1434,19 +1738,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.4,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.6,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1465,19 +1774,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.4,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.6,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1496,19 +1810,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.4,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.6,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1527,19 +1846,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.4,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.8,
+        "social_proof_need": 0.6,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.22,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1557,20 +1881,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.55,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.72,
+        "social_proof_need": 0.45,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1588,20 +1917,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.55,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.72,
+        "social_proof_need": 0.45,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1619,20 +1953,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.55,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.72,
+        "social_proof_need": 0.45,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1650,20 +1989,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.55,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.72,
+        "social_proof_need": 0.45,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.19,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -1681,20 +2025,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.7,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.65,
+        "social_proof_need": 0.3,
+        "verification_patience": 0.5,
+        "noise_level": 0.16,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1712,20 +2060,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.7,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.65,
+        "social_proof_need": 0.3,
+        "verification_patience": 0.5,
+        "noise_level": 0.16,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1743,20 +2095,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.7,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.65,
+        "social_proof_need": 0.3,
+        "verification_patience": 0.5,
+        "noise_level": 0.16,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1774,20 +2130,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.7,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.65,
+        "social_proof_need": 0.3,
+        "verification_patience": 0.5,
+        "noise_level": 0.16,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -1805,17 +2165,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.31,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.69,
+        "verification_patience": 0.2,
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1833,17 +2201,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.31,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.69,
+        "verification_patience": 0.2,
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1861,17 +2237,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.31,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.69,
+        "verification_patience": 0.2,
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1889,17 +2273,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.31,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.84,
+        "social_proof_need": 0.69,
+        "verification_patience": 0.2,
+        "noise_level": 0.24,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1917,17 +2309,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.37,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.82,
+        "social_proof_need": 0.63,
+        "verification_patience": 0.2,
+        "noise_level": 0.23,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1945,17 +2345,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.37,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.82,
+        "social_proof_need": 0.63,
+        "verification_patience": 0.2,
+        "noise_level": 0.23,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -1973,17 +2381,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.37,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.82,
+        "social_proof_need": 0.63,
+        "verification_patience": 0.2,
+        "noise_level": 0.23,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -2001,17 +2417,25 @@
         ]
       },
       "params": {
-        "attention_budget": 10,
-        "trust_prior": 0.1,
-        "effort_tolerance": 1,
+        "attention_budget": 20,
+        "trust_prior": 0.37,
+        "effort_tolerance": 2,
         "cognitive_load_limit": 1,
-        "price_sensitivity": 0.95,
-        "social_proof_need": 0.9,
-        "verification_patience": 0.1,
-        "noise_level": 0.28,
-        "primary_drop_off_stage": "feature_use",
+        "price_sensitivity": 0.82,
+        "social_proof_need": 0.63,
+        "verification_patience": 0.2,
+        "noise_level": 0.23,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
-          "technical_error"
+          "technical_error",
+          "slow_loading",
+          "poor_support",
+          "price_shock"
         ]
       }
     },
@@ -2030,19 +2454,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.5,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.75,
+        "social_proof_need": 0.5,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.2,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2061,19 +2490,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.5,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.75,
+        "social_proof_need": 0.5,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.2,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2092,19 +2526,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.5,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.75,
+        "social_proof_need": 0.5,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.2,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2123,19 +2562,24 @@
       },
       "params": {
         "attention_budget": 30,
-        "trust_prior": 0.2,
+        "trust_prior": 0.5,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.75,
+        "social_proof_need": 0.5,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.2,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2153,20 +2597,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.65,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.68,
+        "social_proof_need": 0.35,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.17,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2184,20 +2633,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.65,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.68,
+        "social_proof_need": 0.35,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.17,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2215,20 +2669,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.65,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.68,
+        "social_proof_need": 0.35,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.17,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2246,20 +2705,25 @@
         ]
       },
       "params": {
-        "attention_budget": 30,
-        "trust_prior": 0.2,
+        "attention_budget": 40,
+        "trust_prior": 0.65,
         "effort_tolerance": 3,
         "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
+        "price_sensitivity": 0.68,
+        "social_proof_need": 0.35,
         "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "noise_level": 0.17,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "payment"
+        },
         "top_friction_triggers": [
           "technical_error",
           "slow_loading",
           "poor_support",
-          "trust_issue"
+          "hidden_charges"
         ]
       }
     },
@@ -2277,20 +2741,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.8,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.6,
+        "social_proof_need": 0.2,
+        "verification_patience": 0.5,
+        "noise_level": 0.14,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -2308,20 +2776,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.8,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.6,
+        "social_proof_need": 0.2,
+        "verification_patience": 0.5,
+        "noise_level": 0.14,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -2339,20 +2811,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.8,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.6,
+        "social_proof_need": 0.2,
+        "verification_patience": 0.5,
+        "noise_level": 0.14,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     },
@@ -2370,20 +2846,24 @@
         ]
       },
       "params": {
-        "attention_budget": 45,
-        "trust_prior": 0.2,
-        "effort_tolerance": 3,
-        "cognitive_load_limit": 2,
-        "price_sensitivity": 0.9,
-        "social_proof_need": 0.8,
-        "verification_patience": 0.3,
-        "noise_level": 0.26,
-        "primary_drop_off_stage": "feature_use",
+        "attention_budget": 65,
+        "trust_prior": 0.8,
+        "effort_tolerance": 5,
+        "cognitive_load_limit": 4,
+        "price_sensitivity": 0.6,
+        "social_proof_need": 0.2,
+        "verification_patience": 0.5,
+        "noise_level": 0.14,
+        "primary_drop_off_stage": {
+          "fintech": "payment",
+          "edtech": "feature_use",
+          "ecommerce": "checkout",
+          "default": "checkout"
+        },
         "top_friction_triggers": [
           "technical_error",
-          "slow_loading",
-          "poor_support",
-          "trust_issue"
+          "incompatible_device",
+          "scam"
         ]
       }
     }

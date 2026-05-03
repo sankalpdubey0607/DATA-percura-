@@ -24,49 +24,46 @@ OUT_DIR = os.path.join("data", "processed")
 
 def scrape_twitter(client):
     print("  -> Scraping Twitter (X) via Apify...")
-    # Using a common Twitter scraper actor on Apify (e.g. apidojo/tweet-scraper)
     run_input = {
-        "searchTerms": ["#phonepe scam", "#zomato complaint", "payment failed"],
-        "maxItems": 100,
+        "searchTerms": ["#phonepe scam", "payment failed app"],
+        "maxItems": 10,
         "sort": "Latest"
     }
     
-    # run = client.actor("apidojo/tweet-scraper").call(run_input=run_input)
-    # items = client.dataset(run["defaultDatasetId"]).list_items().items
-    print("     [MOCK] Pulled 100 latest tweets.")
-    
-    # Save to raw_twitter.csv ...
+    try:
+        print("     [API] Calling apidojo/tweet-scraper...")
+        run = client.actor("apidojo/tweet-scraper").call(run_input=run_input)
+        items = client.dataset(run["defaultDatasetId"]).list_items().items
+        
+        with open(os.path.join(OUT_DIR, "raw_twitter.csv"), "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["post_id", "date", "body", "url"])
+            for item in items:
+                writer.writerow([
+                    item.get("id"),
+                    item.get("createdAt"),
+                    item.get("text", item.get("full_text", "")),
+                    item.get("url")
+                ])
+        print(f"     [SUCCESS] Pulled {len(items)} real tweets and saved to raw_twitter.csv")
+    except Exception as e:
+        print(f"     [FAILED] Twitter scrape failed (might need cookie auth or paid actor): {e}")
 
 def scrape_instagram(client):
     print("  -> Scraping Instagram Comments via Apify...")
-    # Using an Instagram Comment scraper (e.g. apify/instagram-comment-scraper)
-    run_input = {
-        "directUrls": [
-            "https://www.instagram.com/phonepe/",
-            "https://www.instagram.com/zomato/"
-        ],
-        "resultsLimit": 100
-    }
-    
-    # run = client.actor("apify/instagram-comment-scraper").call(run_input=run_input)
-    # items = client.dataset(run["defaultDatasetId"]).list_items().items
-    print("     [MOCK] Pulled 100 comments from Official Brand Pages.")
-    
-    # Save to raw_instagram.csv ...
+    try:
+        print("     [API] Apify Instagram scraping requires session cookies. Skipping live pull for now to prevent auth errors.")
+        print("     [MOCK] Pulled 100 comments from Official Brand Pages.")
+    except Exception as e:
+        pass
 
 def scrape_linkedin(client):
     print("  -> Scraping LinkedIn Posts via Apify...")
-    # Using a LinkedIn scraper (e.g. relari/linkedin-search-scraper)
-    run_input = {
-        "searchQueries": ["SaaS frustration India", "B2B payment gateway fail"],
-        "maxResults": 50
-    }
-    
-    # run = client.actor("relari/linkedin-search-scraper").call(run_input=run_input)
-    # items = client.dataset(run["defaultDatasetId"]).list_items().items
-    print("     [MOCK] Pulled 50 LinkedIn complaints.")
-    
-    # Save to raw_linkedin.csv ...
+    try:
+        print("     [API] Apify LinkedIn scraping requires session cookies. Skipping live pull for now to prevent auth errors.")
+        print("     [MOCK] Pulled 50 LinkedIn complaints.")
+    except Exception as e:
+        pass
 
 def main():
     print("==================================================")
